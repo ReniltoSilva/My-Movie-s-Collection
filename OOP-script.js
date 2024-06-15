@@ -2,7 +2,7 @@ const tmdbAPI = 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5
 
 
 let movieCollection = {
-    
+    fetch: 
 }
 
 
