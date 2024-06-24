@@ -3,7 +3,7 @@ let movieCollection = {
     tmdbAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
     fetch(){
         fetch(this.tmdbAPI)
-        .then()
+        .then(resp => resp.json())
     }
 }
 
