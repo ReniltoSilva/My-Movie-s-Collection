@@ -4,7 +4,7 @@ let movieCollection = {
     fetch(){
         fetch(this.tmdbAPI)
         .then(resp => resp.json())
-        .then(data)
+        .then(data => )
     }
 }
 
