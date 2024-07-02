@@ -5,7 +5,7 @@ let movieCollection = {
         fetch(this.tmdbAPI)
         .then(resp => resp.json())
         .then(data => {
-            console.log()
+            console.log(data)
         })
     }
 }
