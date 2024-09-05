@@ -1,0 +1,313 @@
+body{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 0px 8px 0px;
+    /* background: linear-gradient(rgb(255, 255, 255), rgb(95, 95, 95)) ; */
+    background: linear-gradient(rgb(46, 46, 46), rgb(113, 113, 113));
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+/* //----------------------HEADER----------------------// */
+header{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(57, 64, 70, 0.9);
+    z-index: 1;
+}
+
+.sub-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 80%;
+}
+
+.sub-header-LogoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.sub-header-SearchContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.searchForm{
+    width: 400px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.searchForm::placeholder{
+    display: flex;
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.search-button{
+    position:relative;
+    right: 32px;
+    width: 30px;
+    height: 28px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(137, 221, 206);
+    background: linear-gradient(rgb(137, 221, 206), rgb(39, 198, 226));
+}
+
+.material-symbols-outlined{
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    color: rgb(58, 58, 58);
+}
+
+.sub-header-MenuContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+img{
+    width: 50%;
+}
+
+nav{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 16px;
+    font-family: 'roboto';
+    font-weight: 600;
+    letter-spacing: 0.5px;;
+}
+
+li:hover{
+    background-color: rgba(112, 118, 122, 0.851);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+/* //----------------------HEADER----------------------// */
+
+.main-Home-grid-container{
+    display: grid;
+    margin: 50px 0 50px 0;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    row-gap: 30px;
+    column-gap: 30px;
+    width: 80%;
+    height: 100%;
+}
+
+.movie-grid-container{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 265px;
+    height: 440px;
+    /* border: rgb(255, 255, 255) solid 2px; */
+}
+
+
+.img-container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    /* justify-items: center; */
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: rgb(255, 255, 255) solid 2px;
+    position: relative;
+}
+
+.figcaptionContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.727);
+    opacity: 0;
+}
+.figcaptionContainer:hover{
+    opacity:1;
+    transition: 0.5s;
+}
+
+.contentFigcaption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 80%;
+    overflow: hidden;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
+    padding: 10px;
+    text-align: justify;
+    color: rgb(233, 233, 233);
+}
+
+.littleIconContainer{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    z-index: 1;
+}
+
+.littleIconMenu{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: none;
+}
+
+.imgPoster{
+    overflow: hidden;
+    border-radius: 5px; 
+    width: 100%;
+}
+
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    height: 10%;
+    width: 100%;
+    
+}
+
+.movie-title, .movie-year{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 5px;
+    height: 100%;
+    color: white;
+    font-family: 'roboto';
+}
+
+.movie-title{
+    font-family: 'roboto';
+    font-weight: 600;
+}
+
+
+
+/* -------------------------------------------- ORIGINAL ------------------------------------------------------------ */
+/* 
+.containerMovieListOneDashboard{
+    display: flex;
+    flex-direction: column;
+    height:600px;
+    background-color: rgb(224, 225, 225);
+}
+.nameListDashboard{
+    width: 400px;
+    font-size: 25px;
+    font: 'roboto';
+}
+
+.containerMovieDashboard{
+    display: flex;
+    flex-direction: column;
+    width: 190px;
+    height: 360px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+    margin: 0 5px;
+}
+.containerMoviesInsideListDashboard{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.containerThumbnailMovieDashboard{
+    height: 235px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+img{
+    position: relative;
+    height: 100%;
+    width: 160px; 
+}
+
+.containerInfoMovieDashboard{
+    padding: 0 5px;
+    position: relative;
+    height: 35%;
+    width: 95%;
+}
+
+.containerTitleMovieDashboard{
+    background-color: tomato;
+}
+
+.titleMovieDashboard{
+    font-size: 21px;
+
+}
+
+p{
+    margin: 5px 10px;
+} */
+
+
