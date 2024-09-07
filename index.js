@@ -11,18 +11,9 @@ const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&pa
 
     searchBTN.addEventListener('click', fetchMoviesSearch)
 
-    
-    console.log(searchInput.value)
-    
-
-    if(searchInput.value = ''){
-
-        alert("Please, write something")
-
-    }
-    else {
-        
         function fetchMoviesSearch(){
+
+            console.log(searchInput.value)
 
             const query = document.querySelector('.searchForm')
             const inputValue = query.value;
@@ -40,22 +31,25 @@ const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&pa
     
                     const dateConverted = index.release_date;
                     const year = new Date(dateConverted).getFullYear();
-    
+
                     const movieContainer = document.createElement('div')
                     movieContainer.classList.add('movie-grid-container')
                     
                     movieContainer.innerHTML = `
-                            <div class="img-container">
-                                <div class="littleIconContainer">
-                                <img src="little icon.svg" class="littleIconMenu">
-                                </div>
-                                <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${index.poster_path}" alt="" />
+                        <div class="img-container">
+                            <div class="littleIconContainer">
+                            <img src="little icon.svg" class="littleIconMenu">
                             </div>
-                            
-                            <div class="info-container">
-                                <p class="movie-title">${index.title}</p>
-                                <p class="movie-year">${movieYear}</p>
-                            </div>`
+                            <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${index.poster_path}" alt="" />
+                            <div class="figcaptionContainer">
+                            <p class="contentFigcaption">${index.overview}</p>
+                            </div>
+                        </div>
+
+                        <div class="info-container">
+                            <p class="movie-title">${index.title}</p>
+                            <p class="movie-year">${year}</p>
+                        </div>`
     
                 mainHomeGrid.appendChild(movieContainer)
     
@@ -63,7 +57,7 @@ const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&pa
             })
             .catch(err => console.log(err))
         }
-    }
+
 //------------------------------------------------------------//
 
 
