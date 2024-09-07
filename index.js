@@ -8,55 +8,66 @@ const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&pa
 //---------------MOVIE SEARCH SECTION---------------------//  
     const searchBTN = document.querySelector('.search-button')
     const searchInput = document.querySelector('.searchForm')
-
+    
+    
     searchBTN.addEventListener('click', fetchMoviesSearch)
+    
+    
+    function fetchMoviesSearch(){
 
-        function fetchMoviesSearch(){
+        const inputValue = searchInput.value;
 
-            console.log(searchInput.value)
-
-            const query = document.querySelector('.searchForm')
-            const inputValue = query.value;
-    
-            const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&query=${inputValue}&page=1`
-    
-            fetch(searchAPI)
-            .then(response => response.json())
-            .then(data => {
-                const movieList = data.results
-    
-                movieList.forEach(index => {
-    
-                    const mainHomeGrid = document.querySelector('.main-Home-grid-container')
-    
-                    const dateConverted = index.release_date;
-                    const year = new Date(dateConverted).getFullYear();
-
-                    const movieContainer = document.createElement('div')
-                    movieContainer.classList.add('movie-grid-container')
-                    
-                    movieContainer.innerHTML = `
-                        <div class="img-container">
-                            <div class="littleIconContainer">
-                            <img src="little icon.svg" class="littleIconMenu">
-                            </div>
-                            <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${index.poster_path}" alt="" />
-                            <div class="figcaptionContainer">
-                            <p class="contentFigcaption">${index.overview}</p>
-                            </div>
-                        </div>
-
-                        <div class="info-container">
-                            <p class="movie-title">${index.title}</p>
-                            <p class="movie-year">${year}</p>
-                        </div>`
-    
-                mainHomeGrid.appendChild(movieContainer)
-    
-                })   
-            })
-            .catch(err => console.log(err))
+        if(inputValue === ''){
+            alert("Please, write something") 
         }
+            else  {
+                        // const query = document.querySelector('.searchForm')
+                        // const inputValue = query.value;
+                
+                        const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&query=${inputValue}&page=1`
+                
+                        fetch(searchAPI)
+                        .then(response => response.json())
+                        .then(data => {
+                            const movieList = data.results
+                            const mainHomeGrid = document.querySelector('.main-Home-grid-container')
+
+                            mainHomeGrid.innerHTML = '';
+
+
+                            movieList.forEach(index => {
+                
+                                const dateConverted = index.release_date;
+                                const year = new Date(dateConverted).getFullYear();
+            
+                                const movieContainer = document.createElement('div')
+                                movieContainer.classList.add('movie-grid-container')
+
+                                movieContainer.innerHTML = `
+                                    <div class="img-container">
+                                        <div class="littleIconContainer">
+                                        <img src="little icon.svg" class="littleIconMenu">
+                                        </div>
+                                        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${index.poster_path}" alt="" />
+                                        <div class="figcaptionContainer">
+                                        <p class="contentFigcaption">${index.overview}</p>
+                                        </div>
+                                    </div>
+            
+                                    <div class="info-container">
+                                        <p class="movie-title">${index.title}</p>
+                                        <p class="movie-year">${year}</p>
+                                    </div>`
+                
+                            mainHomeGrid.appendChild(movieContainer)
+                
+                            })   
+                        })
+                        .catch(err => console.log(err))
+            }
+    }
+
+        
 
 //------------------------------------------------------------//
 
