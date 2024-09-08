@@ -18,7 +18,9 @@ const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&pa
         const inputValue = searchInput.value;
 
         if(inputValue === ''){
+
             alert("Please, write something") 
+            
         }
             else  {
                         // const query = document.querySelector('.searchForm')
