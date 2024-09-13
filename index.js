@@ -197,3 +197,6 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
         <p class="contentFigcaption">${movieOverview}</p>
         <p class="genreOneFigCaption">${genreNames}</p> `
 }
+
+
+
