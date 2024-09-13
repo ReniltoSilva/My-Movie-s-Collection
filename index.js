@@ -189,6 +189,8 @@ function dropdownMenuContent(movieTitleParam){
 }
 
 
+
+
 function displayMoviePoster(moviePoster, movieOverview, genreNames){
 
     return  `
