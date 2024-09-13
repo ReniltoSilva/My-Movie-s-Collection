@@ -132,7 +132,7 @@ function displayMovieHomePage(movieDataResults, genreList){
 
         const movieContainer = document.createElement('div')
         movieContainer.classList.add('movie-grid-container')
-        
+
         const moviePoster = movie.poster_path
         const movieOverview = movie.overview
 
@@ -147,7 +147,8 @@ function displayMovieHomePage(movieDataResults, genreList){
         const genreNames = genreMovies.map(genreId => genreIdToName[genreId]).join(', ');
         console.log(genreNames)
     
-
+        
+        
         movieContainer.innerHTML = `
                 <div class="img-container">
                     <div class="littleIconContainer">
