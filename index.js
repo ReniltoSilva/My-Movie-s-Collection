@@ -148,7 +148,7 @@ function displayMovieHomePage(movieDataResults, genreList){
         console.log(genreNames)
     
         
-        
+
         movieContainer.innerHTML = `
                 <div class="img-container">
                     <div class="littleIconContainer">
@@ -169,6 +169,8 @@ function displayMovieHomePage(movieDataResults, genreList){
         homeGridContainer.appendChild(movieContainer)
     })
 }
+
+
 
 
 function dropdownMenuContent(movieTitleParam){
