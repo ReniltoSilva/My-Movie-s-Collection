@@ -13,17 +13,6 @@ let movieCollection = {
 }
 
 
-fetch(tmdbAPI)
-    .then(resp => resp.json())
-    .then(data => {
-        console.log(data)
-        console.log(data.results)
-
-        const movieArray = data.results
-        displayMovieHomePage(movieArray)
-
-
-
 function displayMovieHomePage(movieArray){
     const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')    
 
