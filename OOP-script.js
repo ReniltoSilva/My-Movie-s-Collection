@@ -21,7 +21,8 @@ let movieCollection = {
 
             const mainHOMEGridContainer = document.createElement('div')
             mainHOMEGridContainer.classList.add('.main-Home-grid-container')    
-            const movieGridContainer = document.querySelector('.movie-grid-container') 
+            const movieGridContainer = document.createElement('div')
+            movieGridContainer.classList.add('.movie-grid-container') 
 
             let movieYear = new Date(element.release_date) 
             const movieYearConverted = movieYear.getFullYear()
