@@ -36,9 +36,11 @@ let movieCollection = {
                         <p class="movie-title">${element.title}</p>
                         <p class="movie-year">${movieYearConverted}</p>
                     </div>`
+
+            mainHOMEGridContainer.appendChild(movieGridContainer) 
+
         });
 
-                mainHOMEGridContainer.appendChild(movieGridContainer) 
 
         console.log(movieArray)
     }
