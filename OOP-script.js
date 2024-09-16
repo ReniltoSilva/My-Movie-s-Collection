@@ -19,8 +19,7 @@ let movieCollection = {
 
         movieArray.forEach(element => {
 
-            const mainHOMEGridContainer = document.createElement('div')
-            mainHOMEGridContainer.classList.add('.main-Home-grid-container')    
+            const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container') 
             const movieGridContainer = document.createElement('div')
             movieGridContainer.classList.add('.movie-grid-container') 
 
