@@ -67,10 +67,10 @@ const movieCollection = {
                     </div>`
 
             mainHOMEGridContainer.appendChild(movieGridContainer) 
-
         });
     }
 }
+
 
 
 
