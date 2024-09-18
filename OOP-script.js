@@ -38,7 +38,6 @@ const movieCollection = {
         .then(data => {
             console.log(data)
             const movieArray = data.results
-            console.log(movieArray)
             this.displayMovieHomePage(movieArray)
         })
     },
