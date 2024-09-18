@@ -59,19 +59,18 @@ const movieCollection = {
 
             movieGridContainer.innerHTML = `
                     <div class="img-container">
-                        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500/${element.poster_path}" alt="" />
+                        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" />
                     </div>
                     <div class="info-container">
                         <p class="movie-title">${element.title}</p>
                         <p class="movie-year">${movieYearConverted}</p>
                     </div>`
 
+                    console.log(element.poster_path)
             mainHOMEGridContainer.appendChild(movieGridContainer) 
         });
     }
 }
-
-
 
 
 //Call fetch method and display movie data in the home page
