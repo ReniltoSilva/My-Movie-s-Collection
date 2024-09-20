@@ -1,7 +1,7 @@
 const apiKey = 'd85fc3f866e5fc77be2f384a028b16d3';
 const apiURL = 'https://api.themoviedb.org/3/movie/16?api_key=d85fc3f866e5fc77be2f384a028b16d3'
 const apiGenreURL = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f866e5fc77be2f384a028b16d3'
-const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&&append_to_response=images'
+const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&&append_to_response=images,'
 const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&page=1'
 
 
@@ -10,7 +10,7 @@ const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&pa
     const searchInput = document.querySelector('.searchForm')
     
     
-    searchBTN.addEventListener('click', () => fetchMoviesSearch(displayMovieHomePage))
+    searchBTN.addEventListener('click', () => fetchMoviesSearch(displayAndSearchMovies))
     
     function fetchMoviesSearch(){
 
@@ -21,45 +21,71 @@ const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&pa
             alert("Please, write something") 
             
         }else{
-                const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&query=${inputValue}&page=1`
-                
-                fetch(searchAPI)
-                .then(response => response.json())
-                .then(data => {
-                    const movieDataResults = data.results;
-                    const mainHomeGrid = document.querySelector('.main-Home-grid-container')
+                // const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&query=${inputValue}&page=1`
+                const searchAPI = `https://api.themoviedb.org/3/movie/popular?&append_to_response=images?&api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&&query=${inputValue}&page=1`
 
-                    mainHomeGrid.innerHTML = '';
 
-                    displayMovieHomePage(movieDataResults)
-                })
-                .catch(err => console.log(err))
+                // fetch(searchAPI)
+                // .then(response => response.json())
+                // .then(data => {
+                //     const movieDataResults = data.results;
+                //     const mainHomeGrid = document.querySelector('.main-Home-grid-container')
+
+                //     mainHomeGrid.innerHTML = '';
+
+                //     displayMovieHomePage(movieDataResults)
+                // })
+                // .catch(err => console.log(err))
+
+                displayAndSearchMovies(searchAPI, displayMovieHomePage)
             }
     }
 
    
 //------------------------------------------------------------//
+//REUSABLE FETCH FUNCTION
 
+document.addEventListener('DOMContentLoaded', displayAndSearchMovies(displayMovieHomePage, fetchMoviesSearch, searchAPI))
+
+
+function displayAndSearchMovies(){
+    const inputValue = searchInput.value;    
+    const searchAPI = `https://api.themoviedb.org/3/movie/popular?&append_to_response=images?&api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&&query=${inputValue}&page=1`
+
+
+    fetch(searchAPI)
+    .then(response => response.json())
+    .then(data => {
+        const mainHomeGrid = document.querySelector('.main-Home-grid-container')
+        mainHomeGrid.innerHTML = '';
+
+        let movieDataResults = data.results;
+        console.log(movieDataResults)
+        fetchMoviesSearch(movieDataResults)
+        displayMovieHomePage(movieDataResults)
+    })
+    .catch(err => console.log(err))
+}
 
 
 //--------------HOME PAGE SECTION ORIGINAL---------------------------//
-    document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
+    // document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 
 
-    function fetchMovies(){
+    // function fetchMovies(){
         
-        fetch(apiPopular)
-        .then(response => response.json())
-        .then(data => {
-            const mainHomeGrid = document.querySelector('.main-Home-grid-container')
-            mainHomeGrid.innerHTML = '';
+    //     fetch(apiPopular)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const mainHomeGrid = document.querySelector('.main-Home-grid-container')
+    //         mainHomeGrid.innerHTML = '';
 
-            let movieDataResults = data.results;
-            console.log(movieDataResults)
+    //         let movieDataResults = data.results;
+    //         console.log(movieDataResults)
 
-            displayMovieHomePage(movieDataResults)
-        })
-    }
+    //         displayMovieHomePage(movieDataResults)
+    //     })
+    // }
 
 //------------------------------------------------------------//
     
