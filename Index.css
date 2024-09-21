@@ -14,7 +14,7 @@ body{
 
 /* //----------------------HEADER----------------------// */
 header{
-    position: fixed;
+    position: sticky;
     top: 0;
     display: flex;
     justify-content: center;
@@ -118,7 +118,15 @@ li{
     font-size: 16px;
     font-family: 'roboto';
     font-weight: 600;
-    letter-spacing: 0.5px;;
+    letter-spacing: 0.5px;; 
+}
+
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
 }
 
 li:hover{
