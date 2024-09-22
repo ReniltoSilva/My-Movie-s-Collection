@@ -200,10 +200,28 @@ li:hover{
     overflow: hidden;
     font-family:'Times New Roman', Times, serif;
     font-size: 18px;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 0;
     text-align: justify;
     color: rgb(233, 233, 233);
 }
+
+.genreOneFigCaption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 20%;
+    margin-bottom: 18px;
+    background-color: brown;
+}
+
+.contentGenre{
+    justify-content: center;
+    margin: 0;
+    color: white;
+}
+
 
 .littleIconContainer{
     position: absolute;
