@@ -14,52 +14,64 @@ document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 
 
 function fetchMovies(){
+
+// //THis is a shorter way of fetching 2 or more APIs at the same time.
+//  Promise.all([
+//     fetch(apiPopular).then(response => response.json()),
+//     fetch(genreApi).then(resp => resp.json())
+//  ])
+//     .then(([movieData, genreData])=> {
+//         const movieDataResults = movieData.results;
+//         const genreList = genreData.genres;
+
+//         displayMovieHomePage(movieDataResults, genreList)
+//  })
+
+
+//--------------------------------------API FETCHING FUNCTION--------------------------------------//
     //API to fetch Movie List
     fetch(apiPopular)
-    .then(response => {
-        if(!response.ok){
-            throw new Error("Failed to fetch movies");
-        }
-        return response.json()
-    })
-    .then(data => {
-        const mainHomeGrid = document.querySelector('.main-Home-grid-container')
-        mainHomeGrid.innerHTML = '';
+        .then(response => {
+            if(!response.ok){
+                throw new Error("Failed to fetch movies");
+            }
+            return response.json()
+        })
+        .then(data => {
+                const mainHomeGrid = document.querySelector('.main-Home-grid-container')
+                mainHomeGrid.innerHTML = '';
 
-        let movieDataResults = data.results;
-        if(!movieDataResults || movieDataResults.length === 0){
-            console.error('No movies found')
-        }
-        console.log(movieDataResults)
-
-
-            //API to fetch Genre List
-            fetch(genreApi)
-            .then(resp => {
-                if(!resp.ok){
-                    throw new Error('Failed to fetch genres')
+                let movieDataResults = data.results;
+                if(!movieDataResults || movieDataResults.length === 0){
+                    console.error('No movies found')
                 }
-                return resp.json()
-            })
-            .then(genreData => {
-                let genreList = genreData.genres
-                if(!genreList || genreList.length === 0){
-                    console.log('No genres found')
-                }
-                console.log(genreList)
 
-                displayMovieHomePage(movieDataResults, genreList)
+                //API to fetch Genre List
+                fetch(genreApi)
+                .then(resp => {
+                    if(!resp.ok){
+                        throw new Error('Failed to fetch genres')
+                    }
+                    return resp.json()
+                })
+                .then(genreData => {
+                    let genreList = genreData.genres
+                    if(!genreList || genreList.length === 0){
+                        console.log('No genres found')
+                    }
+                    console.log(genreList)
 
-            })
-            .catch(err => console.log('Genre Fetch Error:', err))
-    })
+                    displayMovieHomePage(movieDataResults, genreList)
+
+                })
+                .catch(err => console.log('Genre Fetch Error:', err))
+        })
+        
     .catch(err => console.log('Movie Fetch Error:', err))
 }
 
 
-
-
-//---------------MOVIE SEARCH SECTION---------------------//  
+//--------------------------------------MOVIE SEARCH FUNCTION---------------------------------------//  
     const searchBTN = document.querySelector('.search-button')
     const searchInput = document.querySelector('.searchForm')
     
@@ -69,10 +81,6 @@ function fetchMovies(){
 
         const inputValue = searchInput.value;
 
-        //This is to clean the home screen from previous search.
-        homeGridContainer.innerHTML = ''
-
-
         if(inputValue === ''){
 
             alert("Please, write something") 
@@ -80,6 +88,9 @@ function fetchMovies(){
             }else{
                 const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&query=${inputValue}&page=1`;
                 const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f866e5fc77be2f384a028b16d3'
+
+                    //This is to clean the home screen from previous search.
+                    homeGridContainer.innerHTML = ''
 
                     // Fetch both movies and genres in parallel
                     Promise.all([
@@ -108,24 +119,20 @@ function fetchMovies(){
             }
     }
 
-   
-//------------------------------------------------------------//
 
 
-
-//------------------------------------------------------------//
+//---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
    
 function displayMovieHomePage(movieDataResults, genreList){
 
-            console.log('movieDataResults:', movieDataResults)
-            console.log('genreList:', genreList)
+// console.log('movieDataResults:', movieDataResults)
+// console.log('genreList:', genreList)
 
+        const genreIdToName = {}
 
-            const genreIdToName = {}
-
-            genreList.forEach(genre => {
-                genreIdToName[genre.id] = genre.name;
-             });
+    genreList.forEach(genre => {
+        genreIdToName[genre.id] = genre.name;
+    });
 
     
     movieDataResults.forEach(movie => {
@@ -162,8 +169,5 @@ function displayMovieHomePage(movieDataResults, genreList){
     
         homeGridContainer.appendChild(movieContainer)
     })
-
-
-
 }
 
