@@ -126,8 +126,6 @@ function displayMovieHomePage(movieDataResults, genreList){
                 genreIdToName[genre.id] = genre.name
             })
 
-    
-
 
     movieDataResults.forEach(movie => {
 
