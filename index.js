@@ -112,9 +112,6 @@ function fetchMoviesSearch(){
 }
 
 
-
-
-
 //---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
 const arrListMovies = [];
 
