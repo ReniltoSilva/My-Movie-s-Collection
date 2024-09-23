@@ -125,6 +125,8 @@ function displayMovieHomePage(movieDataResults, genreList){
             })
 
     
+
+            
     movieDataResults.forEach(movie => {
 
         const genreMovies = movie.genre_ids; // Array of genre IDs for the movie
