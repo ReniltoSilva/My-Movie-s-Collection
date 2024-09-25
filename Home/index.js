@@ -30,6 +30,9 @@ function fetchMovies(){
 
 //--------------------------------------API FETCHING FUNCTION--------------------------------------//
     //API to fetch Movie List
+
+    //Here I fetch both APIs, notice that I can fetch an API inside another API being fetched.
+    //So, after one API is fetched the other one will be called after.
     fetch(apiPopular)
         .then(response => {
             if(!response.ok){
@@ -75,6 +78,9 @@ function fetchMovies(){
     const searchBTN = document.querySelector('.search-button')
     const searchInput = document.querySelector('.searchForm')
     
+
+    //In this function I will fetch both APIs(This time using Promise.all which is the same thing as calling them separate) 
+    //Then I pass in displayMovieHomePage as a callback with the data from both fetched APIs.
     searchBTN.addEventListener('click', () => fetchMoviesSearch(displayMovieHomePage))
     
     function fetchMoviesSearch(){
