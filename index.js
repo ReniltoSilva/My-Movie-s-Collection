@@ -9,6 +9,7 @@ const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f8
 const homeGridContainer = document.querySelector('.main-Home-grid-container')
 
 
+
 //--------------HOME PAGE SECTION ORIGINAL---------------------------//
 document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 
@@ -144,10 +145,7 @@ function displayMovieHomePage(movieDataResults, genreList){
     movieDataResults.forEach(movie => {
 
         const genreMovies = movie.genre_ids; // Array of genre IDs for the movie
-        const convertDate = movie.release_date;
-        const movieYear = new Date(convertDate).getFullYear();
-
-
+        const movieYear = new Date(movie.release_date).getFullYear();
         const movieContainer = document.createElement('div')
         movieContainer.classList.add('movie-grid-container')
 
