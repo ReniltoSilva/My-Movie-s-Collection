@@ -6,12 +6,10 @@ let movieCollection = {
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
+            const movieArray = data.results
         })
     }
 }
-
-
-
 
 
 fetch(tmdbAPI)
@@ -22,7 +20,7 @@ fetch(tmdbAPI)
 
         const movieArray = data.results
         displayMovieHomePage(movieArray)
-})
+
 
 
 function displayMovieHomePage(movieArray){
