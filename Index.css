@@ -216,6 +216,49 @@ li:hover{
     background-color: brown;
 }
 
+.genre-Adventure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70px;
+    min-width: 20px;
+    height: 20px;
+    margin: 1px;
+    border-radius: 3px;
+    background-color: yellow;
+}
+
+.genre-Fantasy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70px;
+    min-width: 20px;
+    height: 20px;
+    margin: 1px;
+    border-radius: 3px;
+    background-color: rgb(171, 3, 3);
+}
+
+.genre-Animation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70px;
+    min-width: 20px;
+    height: 20px;
+    margin: 1px;
+    border-radius: 3px;
+    background-color: rgb(84, 214, 103);
+}
+
+.textInsideSpanGenre{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .contentGenre{
     justify-content: center;
     margin: 0;

@@ -9,24 +9,12 @@ const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f8
 const homeGridContainer = document.querySelector('.main-Home-grid-container')
 
 
-
 //--------------HOME PAGE SECTION ORIGINAL---------------------------//
 document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 
 
 function fetchMovies(){
 
-// //THis is a shorter way of fetching 2 or more APIs at the same time.
-//  Promise.all([
-//     fetch(apiPopular).then(response => response.json()),
-//     fetch(genreApi).then(resp => resp.json())
-//  ])
-//     .then(([movieData, genreData])=> {
-//         const movieDataResults = movieData.results;
-//         const genreList = genreData.genres;
-
-//         displayMovieHomePage(movieDataResults, genreList)
-//  })
 
 
 //--------------------------------------API FETCHING FUNCTION--------------------------------------//
@@ -40,6 +28,7 @@ function fetchMovies(){
                 throw new Error("Failed to fetch movies");
             }
             return response.json()
+
         })
         .then(data => {
                 const mainHomeGrid = document.querySelector('.main-Home-grid-container')
@@ -52,7 +41,10 @@ function fetchMovies(){
 
                 //API to fetch Genre List
                 fetch(genreApi)
-                .then(resp => {
+                .then(resp => { 
+                    //(!resp.ok) convert o bolean. Se a resposta for True, converte p/ false.
+                    //se converter para false, executa o "return resp.json", 
+                    //se converter para true, cai dentro do IF() e executa o código dentro dele.
                     if(!resp.ok){
                         throw new Error('Failed to fetch genres')
                     }
@@ -63,10 +55,9 @@ function fetchMovies(){
                     if(!genreList || genreList.length === 0){
                         console.log('No genres found')
                     }
-                    console.log(genreList)
 
                     displayMovieHomePage(movieDataResults, genreList)
-
+                    console.log(genreData)
                 })
                 .catch(err => console.log('Genre Fetch Error:', err))
         })
@@ -108,15 +99,6 @@ function fetchMovies(){
                     .then(([movieData, genreData]) => {
                         const movieDataResults = movieData.results;
                         const genreList = genreData.genres;
-                    
-
-                        // if(!movieDataResults || movieDataResults.length === 0){
-                        //     console.log('No movies found')
-                        // }
-
-                        // if(!genreList || genreList.length === 0){
-                        //     console.log('No genres found')
-                        // }
 
                         displayMovieHomePage(movieDataResults, genreList)
                     })
@@ -132,14 +114,13 @@ function fetchMovies(){
    
 function displayMovieHomePage(movieDataResults, genreList){
 
-// console.log('movieDataResults:', movieDataResults)
-// console.log('genreList:', genreList)
-
         const genreIdToName = {}
 
-    genreList.forEach(genre => {
-        genreIdToName[genre.id] = genre.name;
-    });
+        genreList.forEach((genre) => {
+            genreIdToName[genre.id] = genre.name
+        })
+
+        console.log(genreIdToName)
 
     
     movieDataResults.forEach(movie => {
@@ -148,10 +129,49 @@ function displayMovieHomePage(movieDataResults, genreList){
         const movieYear = new Date(movie.release_date).getFullYear();
         const movieContainer = document.createElement('div')
         movieContainer.classList.add('movie-grid-container')
+        
 
+//---------------------
+const genreIdToClassName = {
+    
+12: "genre-Adventure",
+14: "genre-Fantasy",
+16: "genre-Animation",
+18: "genre-Drama",
+27: "genre-Horror",
+28: "genre-Action",
+35: "genre-Comedy",
+36: "genre-History",
+37: "genre-Western",
+53: "genre-Thriller",
+80: "genre-Crime",
+99: "genre-Documentary",
+878: "genre-Science Fiction",
+9648: "genre-Mystery",
+10402: "genre-Music",
+10749: "genre-Romance",
+10751: "genre-Family",
+10752: "genre-War",
+10770: "genre-TV Movie"
+}
+
+// Get class names for the movie based on its genres
+const genreClasses = genreMovies
+.map(genreId => genreIdToClassName[genreId])
+.filter(Boolean) // Removes any undefined values if a genreId doesn't have a mapping
+.join(' '); // Join the class names with a space
+
+// Add genre-specific classes to the movie container
+movieContainer.classList.add(...genreClasses.split(' '));
+
+
+//-------------------
         
         // Create an array to store the genre names for this movie
+        //Here, map is looking for the element(genreId) inside array genreMovies and comparing to genreId in the genreIdToName
+        //and returnin the value to the new array genreNames
         const genreNames = genreMovies.map(genreId => genreIdToName[genreId]).join(', ');
+        console.log(genreNames)
 
 
         movieContainer.innerHTML = `
@@ -162,7 +182,7 @@ function displayMovieHomePage(movieDataResults, genreList){
                     <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="" />
                     <div class="figcaptionContainer">
                     <p class="contentFigcaption">${movie.overview}</p>
-                    <p class="genreOneFigCaption">${genreNames}</p>
+                     <p class="genreOneFigCaption">${genreNames}</p> 
                     </div>
                 </div>
     
@@ -170,7 +190,7 @@ function displayMovieHomePage(movieDataResults, genreList){
                     <p class="movie-title">${movie.title}</p>
                     <p class="movie-year">${movieYear}</p>
                 </div>`
-    
+
         homeGridContainer.appendChild(movieContainer)
     })
 }
