@@ -7,6 +7,7 @@ let movieCollection = {
         .then(data => {
             console.log(data)
             const movieArray = data.results
+            displayMovieHomePage(movieArray)
         })
     }
 }
