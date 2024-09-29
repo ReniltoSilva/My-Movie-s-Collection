@@ -132,37 +132,37 @@ function displayMovieHomePage(movieDataResults, genreList){
         
 
 //---------------------
-const genreIdToClassName = {
+// const genreIdToClassName = {
     
-12: "genre-Adventure",
-14: "genre-Fantasy",
-16: "genre-Animation",
-18: "genre-Drama",
-27: "genre-Horror",
-28: "genre-Action",
-35: "genre-Comedy",
-36: "genre-History",
-37: "genre-Western",
-53: "genre-Thriller",
-80: "genre-Crime",
-99: "genre-Documentary",
-878: "genre-Science Fiction",
-9648: "genre-Mystery",
-10402: "genre-Music",
-10749: "genre-Romance",
-10751: "genre-Family",
-10752: "genre-War",
-10770: "genre-TV Movie"
-}
+// 12: "genre-Adventure",
+// 14: "genre-Fantasy",
+// 16: "genre-Animation",
+// 18: "genre-Drama",
+// 27: "genre-Horror",
+// 28: "genre-Action",
+// 35: "genre-Comedy",
+// 36: "genre-History",
+// 37: "genre-Western",
+// 53: "genre-Thriller",
+// 80: "genre-Crime",
+// 99: "genre-Documentary",
+// 878: "genre-Science Fiction",
+// 9648: "genre-Mystery",
+// 10402: "genre-Music",
+// 10749: "genre-Romance",
+// 10751: "genre-Family",
+// 10752: "genre-War",
+// 10770: "genre-TV Movie"
+// }
 
-// Get class names for the movie based on its genres
-const genreClasses = genreMovies
-.map(genreId => genreIdToClassName[genreId])
-.filter(Boolean) // Removes any undefined values if a genreId doesn't have a mapping
-.join(' '); // Join the class names with a space
+// // Get class names for the movie based on its genres
+// const genreClasses = genreMovies
+// .map(genreId => genreIdToClassName[genreId])
+// .filter(Boolean) // Removes any undefined values if a genreId doesn't have a mapping
+// .join(' '); // Join the class names with a space
 
-// Add genre-specific classes to the movie container
-movieContainer.classList.add(...genreClasses.split(' '));
+// // Add genre-specific classes to the movie container
+// movieContainer.classList.add(...genreClasses.split(' '));
 
 
 //-------------------
@@ -172,17 +172,25 @@ movieContainer.classList.add(...genreClasses.split(' '));
         //and returnin the value to the new array genreNames
         const genreNames = genreMovies.map(genreId => genreIdToName[genreId]).join(', ');
         console.log(genreNames)
+        
+            
 
 
         movieContainer.innerHTML = `
                 <div class="img-container">
-                    <div class="littleIconContainer">
+                    <div class="littleIconContainer" onclick="classList.toggle('dropdownMenuContainer')">
                     <img src="little icon.svg" class="littleIconMenu">
+                        <div class="dropdownMenuContainer">
+                            <a href="#" class="dropDownContent" onclick="console.log('Hello Junior')">List one</a>
+                            <a href="#" class="dropDownContent" onclick="console.log('Hello again')">List two</a>
+                            <a href="#" class="dropDownContent" onclick="console.log('Ho, Hi :)')">List three</a>
+                            <a href="#" class="dropDownContent createNewList" onclick="console.log('You are still here!?')">New list +</a>
+                        </div>
                     </div>
                     <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="" />
-                    <div class="figcaptionContainer">
-                    <p class="contentFigcaption">${movie.overview}</p>
-                     <p class="genreOneFigCaption">${genreNames}</p> 
+                        <div class="figcaptionContainer">
+                        <p class="contentFigcaption">${movie.overview}</p>
+                        <p class="genreOneFigCaption">${genreNames}</p> 
                     </div>
                 </div>
     
@@ -190,6 +198,7 @@ movieContainer.classList.add(...genreClasses.split(' '));
                     <p class="movie-title">${movie.title}</p>
                     <p class="movie-year">${movieYear}</p>
                 </div>`
+
 
         homeGridContainer.appendChild(movieContainer)
     })

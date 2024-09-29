@@ -281,6 +281,42 @@ li:hover{
     height: 100%;
     border-radius: 50px;
     border: none;
+    cursor: pointer;
+}
+
+.dropdownMenuContainer{
+    position: relative;
+    top: -3px;
+    left: 5px;
+    display: inline-block;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(127, 202, 189);
+    box-shadow: 2px 2px 5px black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.dropDownContent{
+    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif ;
+    display: none;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2px 0;
+    padding: 0 5px;
+    width: 95%;
+    height: 25px;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(109, 109, 109);
+}
+
+.dropDownContent:hover{
+    border-radius: 3px;
+    background-color: rgb(103, 155, 152);
 }
 
 .imgPoster{
