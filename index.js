@@ -74,7 +74,8 @@ function fetchMovies(){
     //In this function I will fetch both APIs(This time using Promise.all which is the same thing as calling them separate) 
     //Then I pass in displayMovieHomePage as a callback with the data from both fetched APIs.
     searchBTN.addEventListener('click', () => fetchMoviesSearch(displayMovieHomePage))
-    
+        
+
     function fetchMoviesSearch(){
 
         const inputValue = searchInput.value;
