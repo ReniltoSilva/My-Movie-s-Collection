@@ -20,8 +20,6 @@ function fetchInfo(){
             const imgProfile = document.querySelector('.imgProfile')
                 imgProfile.src = profilePic
 
-
-
         })
 
 }

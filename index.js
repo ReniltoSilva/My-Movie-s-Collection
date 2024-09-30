@@ -12,7 +12,6 @@ const homeGridContainer = document.querySelector('.main-Home-grid-container')
 //--------------HOME PAGE SECTION ORIGINAL---------------------------//
 document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 
-
 function fetchMovies(){
 
 
@@ -66,6 +65,7 @@ function fetchMovies(){
 }
 
 
+
 //--------------------------------------MOVIE SEARCH FUNCTION---------------------------------------//  
     const searchBTN = document.querySelector('.search-button')
     const searchInput = document.querySelector('.searchForm')
@@ -113,6 +113,9 @@ function fetchMovies(){
 
 //---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
    
+const arrListMovies = []
+
+
 function displayMovieHomePage(movieDataResults, genreList){
 
         const genreIdToName = {}
@@ -166,7 +169,7 @@ function displayMovieHomePage(movieDataResults, genreList){
 // movieContainer.classList.add(...genreClasses.split(' '));
 
 
-//-------------------
+//-----------------------------------------------
         
         // Create an array to store the genre names for this movie
         //Here, map is looking for the element(genreId) inside array genreMovies and comparing to genreId in the genreIdToName
@@ -203,5 +206,12 @@ function displayMovieHomePage(movieDataResults, genreList){
 
         homeGridContainer.appendChild(movieContainer)
     })
+}
+
+
+function addMovieToList(){
+
+
+
 }
 
