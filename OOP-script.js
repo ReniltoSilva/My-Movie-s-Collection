@@ -9,11 +9,9 @@ let movieCollection = {
             const movieArray = data.results
             displayMovieHomePage(movieArray)
         })
-    }
-}
+    },
 
-
-function displayMovieHomePage(movieArray){
+    function displayMovieHomePage(movieArray){
     const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')    
 
     movieArray.forEach(element => {
@@ -35,3 +33,6 @@ function displayMovieHomePage(movieArray){
 
     console.log(movieArray)
 }
+}
+
+
