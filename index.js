@@ -37,6 +37,8 @@ function fetchMovies(){
                 if(!movieDataResults || movieDataResults.length === 0){
                     console.error('No movies found')
                 }
+                console.log(movieDataResults)
+
 
                 //API to fetch Genre List
                 fetch(genreApi)
@@ -113,7 +115,9 @@ function fetchMovies(){
 
 //---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
    
-const arrListMovies = []
+const arrListMovies = [];
+
+
 
 
 function displayMovieHomePage(movieDataResults, genreList){
@@ -134,55 +138,19 @@ function displayMovieHomePage(movieDataResults, genreList){
         const movieContainer = document.createElement('div')
         movieContainer.classList.add('movie-grid-container')
         
-
-//---------------------
-// const genreIdToClassName = {
-    
-// 12: "genre-Adventure",
-// 14: "genre-Fantasy",
-// 16: "genre-Animation",
-// 18: "genre-Drama",
-// 27: "genre-Horror",
-// 28: "genre-Action",
-// 35: "genre-Comedy",
-// 36: "genre-History",
-// 37: "genre-Western",
-// 53: "genre-Thriller",
-// 80: "genre-Crime",
-// 99: "genre-Documentary",
-// 878: "genre-Science Fiction",
-// 9648: "genre-Mystery",
-// 10402: "genre-Music",
-// 10749: "genre-Romance",
-// 10751: "genre-Family",
-// 10752: "genre-War",
-// 10770: "genre-TV Movie"
-// }
-
-// // Get class names for the movie based on its genres
-// const genreClasses = genreMovies
-// .map(genreId => genreIdToClassName[genreId])
-// .filter(Boolean) // Removes any undefined values if a genreId doesn't have a mapping
-// .join(' '); // Join the class names with a space
-
-// // Add genre-specific classes to the movie container
-// movieContainer.classList.add(...genreClasses.split(' '));
-
-
-//-----------------------------------------------
         
+
+
         // Create an array to store the genre names for this movie
         //Here, map is looking for the element(genreId) inside array genreMovies and comparing to genreId in the genreIdToName
         //and returnin the value to the new array genreNames
         const genreNames = genreMovies.map(genreId => genreIdToName[genreId]).join(', ');
         console.log(genreNames)
         
-            
-
 
         movieContainer.innerHTML = `
                 <div class="img-container">
-                    <div class="littleIconContainer" onclick="classList.toggle('dropdownMenuContainer')">
+                    <div class="littleIconContainer" onclick="arrListMovies.push('${movie.title}')">
                     <img src="little icon.svg" class="littleIconMenu">
                         <div class="dropdownMenuContainer">
                             <a href="#" class="dropDownContent" onclick="console.log('Hello Junior')">List one</a>
@@ -209,9 +177,5 @@ function displayMovieHomePage(movieDataResults, genreList){
 }
 
 
-function addMovieToList(){
 
-
-
-}
 
