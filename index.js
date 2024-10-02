@@ -8,15 +8,11 @@ const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f8
 
 const homeGridContainer = document.querySelector('.main-Home-grid-container')
 
+//--------------------------------------API FETCHING FUNCTION--------------------------------------//
 
-//--------------HOME PAGE SECTION ORIGINAL---------------------------//
 document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 
 function fetchMovies(){
-
-
-
-//--------------------------------------API FETCHING FUNCTION--------------------------------------//
     //API to fetch Movie List
 
     //Here I fetch both APIs, notice that I can fetch an API inside another API being fetched.
@@ -117,9 +113,6 @@ function fetchMovies(){
    
 const arrListMovies = [];
 
-
-
-
 function displayMovieHomePage(movieDataResults, genreList){
 
         const genreIdToName = {}
@@ -137,10 +130,7 @@ function displayMovieHomePage(movieDataResults, genreList){
         const movieYear = new Date(movie.release_date).getFullYear();
         const movieContainer = document.createElement('div')
         movieContainer.classList.add('movie-grid-container')
-        
-        
-
-
+   
         // Create an array to store the genre names for this movie
         //Here, map is looking for the element(genreId) inside array genreMovies and comparing to genreId in the genreIdToName
         //and returnin the value to the new array genreNames
@@ -150,13 +140,11 @@ function displayMovieHomePage(movieDataResults, genreList){
 
         movieContainer.innerHTML = `
                 <div class="img-container">
-                    <div class="littleIconContainer" onclick="arrListMovies.push('${movie.title}')">
+                    <div class="littleIconContainer" >
                     <img src="little icon.svg" class="littleIconMenu">
                         <div class="dropdownMenuContainer">
-                            <a href="#" class="dropDownContent" onclick="console.log('Hello Junior')">List one</a>
-                            <a href="#" class="dropDownContent" onclick="console.log('Hello again')">List two</a>
-                            <a href="#" class="dropDownContent" onclick="console.log('Ho, Hi :)')">List three</a>
-                            <a href="#" class="dropDownContent createNewList" onclick="console.log('You are still here!?')">New list +</a>
+                            <a href="#" class="dropDownContent" onclick="arrListMovies.push('${movie.title}'); console.log('${movie.title} is added to the list')">List one</a>
+                            <a href="#" class="dropDownContent createNewList" onclick="const listName = prompt('Enter list name'); console.log(listName)">New list +</a>
                         </div>
                     </div>
                     <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="" />
@@ -173,7 +161,9 @@ function displayMovieHomePage(movieDataResults, genreList){
 
 
         homeGridContainer.appendChild(movieContainer)
+
     })
+
 }
 
 

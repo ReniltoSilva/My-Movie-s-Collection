@@ -286,14 +286,14 @@ li:hover{
 }
 
 .dropdownMenuContainer{
-    position: relative;
+    /* position: relative; */
     top: -3px;
     left: 5px;
-    display: inline-block;
+    /* display: inline-block; */
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    width: 150px;
+    width: 170px;
     height: 150px;
     background-color: rgb(127, 202, 189);
     box-shadow: 2px 2px 5px black;
@@ -302,16 +302,15 @@ li:hover{
 }
 
 .dropDownContent{
-    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif ;
-    display: none;
-    position: relative;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* position: relative; */
     justify-content: flex-start;
     align-items: center;
     margin: 2px 0;
     padding: 0 5px;
     width: 95%;
     height: 25px;
-    color: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
     border-bottom: 1px solid rgb(109, 109, 109);
 }
 
