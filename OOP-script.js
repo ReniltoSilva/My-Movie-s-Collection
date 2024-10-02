@@ -11,28 +11,28 @@ let movieCollection = {
         })
     },
 
-    function displayMovieHomePage(movieArray){
-    const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')    
+    displayMovieHomePage(movieArray){
+        const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')    
 
-    movieArray.forEach(element => {
+        movieArray.forEach(element => {
 
-        let movieYear = new Date(element.release_date) 
-        const movieYearConverted = movieYear.getFullYear()
+            let movieYear = new Date(element.release_date) 
+            const movieYearConverted = movieYear.getFullYear()
 
-        mainHOMEGridContainer.innerHTML = `
-            <div class="movie-grid-container">
-                <div class="img-container">
-                    <img class="imgPoster" src="" alt="" />
-                </div>
-                <div class="info-container">
-                    <p class="movie-title">${element.title}</p>
-                    <p class="movie-year">${movieYearConverted}</p>
-                </div>
-            </div>`
-    });
+            mainHOMEGridContainer.innerHTML = `
+                <div class="movie-grid-container">
+                    <div class="img-container">
+                        <img class="imgPoster" src="" alt="" />
+                    </div>
+                    <div class="info-container">
+                        <p class="movie-title">${element.title}</p>
+                        <p class="movie-year">${movieYearConverted}</p>
+                    </div>
+                </div>`
+        });
 
-    console.log(movieArray)
-}
+        console.log(movieArray)
+    }
 }
 
 
