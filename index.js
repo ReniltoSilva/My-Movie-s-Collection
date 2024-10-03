@@ -5,18 +5,21 @@ const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f86
 const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&page=1'
 const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f866e5fc77be2f384a028b16d3'
 
-
 const homeGridContainer = document.querySelector('.main-Home-grid-container')
+
+
+
+
 
 //--------------------------------------API FETCHING FUNCTION--------------------------------------//
 
 document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 
-function fetchMovies(){
-    //API to fetch Movie List
 
-    //Here I fetch both APIs, notice that I can fetch an API inside another API being fetched.
-    //So, after one API is fetched the other one will be called after.
+//Here I fetch both APIs, notice that I can fetch an API inside another API being fetched.
+//So, after one API is fetched the other one will be called after.
+function fetchMovies(){
+
     fetch(apiPopular)
         .then(response => {
             if(!response.ok){
@@ -65,6 +68,7 @@ function fetchMovies(){
 
 
 //--------------------------------------MOVIE SEARCH FUNCTION---------------------------------------//  
+
     const searchBTN = document.querySelector('.search-button')
     const searchInput = document.querySelector('.searchForm')
     
