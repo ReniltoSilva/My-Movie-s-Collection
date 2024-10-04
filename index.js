@@ -115,7 +115,7 @@ function fetchMovies(){
 
 //---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
    
-const arrListMovies = [];
+ const arrListMovies = [];
 
 function displayMovieHomePage(movieDataResults, genreList){
 
@@ -147,7 +147,10 @@ function displayMovieHomePage(movieDataResults, genreList){
                     <div class="littleIconContainer" >
                     <img src="little icon.svg" class="littleIconMenu">
                         <div class="dropdownMenuContainer">
-                            <a href="#" class="dropDownContent" onclick="arrListMovies.push('${movie.title}'); console.log('${movie.title} is added to the list')">List one</a>
+                            <a href="#" class="dropDownContent" onclick="arrListMovies.push('{
+    name: '${movie.title}',
+    year: '${movieYear}'
+}'); console.log('${movie.title} is added to the list'); localStorage.setItem('MovieList', JSON.stringify(arrListMovies))">List one</a>
                             <a href="#" class="dropDownContent createNewList" onclick="const listName = prompt('Enter list name'); console.log(listName)">New list +</a>
                         </div>
                     </div>
@@ -170,6 +173,6 @@ function displayMovieHomePage(movieDataResults, genreList){
 
 }
 
-
+    
 
 

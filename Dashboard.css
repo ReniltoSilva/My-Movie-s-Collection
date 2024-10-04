@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    width: 900px;
+    width: auto;
     height: 300px;
     margin: 30px;
     background-color: aquamarine;
@@ -50,4 +50,32 @@
     flex-direction: column;
     background-color:turquoise;
 
+}
+
+.generalMovieListContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: auto;
+    min-height: 300px;
+    margin: 30px;
+    padding: 20px;
+    background-color: rgb(255, 176, 127);
+}
+
+.ListContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 900px;
+    height: 250px;
+    border: solid black 2px;
+}
+
+.movieContainer{
+    width: 180px;
+    height: 230px;
+    background-color: rgb(133, 49, 144);
+    margin: 10px;
 }
