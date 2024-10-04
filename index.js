@@ -114,18 +114,20 @@ function fetchMovies(){
 
 
 //---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
-   
+
+    
+
  const arrListMovies = [];
+
+
 
 function displayMovieHomePage(movieDataResults, genreList){
 
-        const genreIdToName = {}
+            const genreIdToName = {}
 
-        genreList.forEach((genre) => {
-            genreIdToName[genre.id] = genre.name
-        })
-
-        console.log(genreIdToName)
+            genreList.forEach((genre) => {
+                genreIdToName[genre.id] = genre.name
+            })
 
     
     movieDataResults.forEach(movie => {
@@ -134,30 +136,30 @@ function displayMovieHomePage(movieDataResults, genreList){
         const movieYear = new Date(movie.release_date).getFullYear();
         const movieContainer = document.createElement('div')
         movieContainer.classList.add('movie-grid-container')
-   
+        const moviePoster = movie.poster_path
+        const movieOverview = movie.overview
+
+
+        const dropdownButton = document.querySelector('.littleIconMenu')
+                console.log(dropdownButton)
+            
+
         // Create an array to store the genre names for this movie
         //Here, map is looking for the element(genreId) inside array genreMovies and comparing to genreId in the genreIdToName
         //and returnin the value to the new array genreNames
         const genreNames = genreMovies.map(genreId => genreIdToName[genreId]).join(', ');
         console.log(genreNames)
-        
+    
 
         movieContainer.innerHTML = `
                 <div class="img-container">
                     <div class="littleIconContainer" >
                     <img src="little icon.svg" class="littleIconMenu">
                         <div class="dropdownMenuContainer">
-                            <a href="#" class="dropDownContent" onclick="arrListMovies.push('{
-    name: '${movie.title}',
-    year: '${movieYear}'
-}'); console.log('${movie.title} is added to the list'); localStorage.setItem('MovieList', JSON.stringify(arrListMovies))">List one</a>
-                            <a href="#" class="dropDownContent createNewList" onclick="const listName = prompt('Enter list name'); console.log(listName)">New list +</a>
+                        ${dropdownMenuContent(movie.title)}                          
                         </div>
                     </div>
-                    <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="" />
-                        <div class="figcaptionContainer">
-                        <p class="contentFigcaption">${movie.overview}</p>
-                        <p class="genreOneFigCaption">${genreNames}</p> 
+                        ${displayMoviePoster(moviePoster, movieOverview, genreNames)}
                     </div>
                 </div>
     
@@ -166,13 +168,32 @@ function displayMovieHomePage(movieDataResults, genreList){
                     <p class="movie-year">${movieYear}</p>
                 </div>`
 
-
         homeGridContainer.appendChild(movieContainer)
-
     })
-
 }
 
-    
+
+function dropdownMenuContent(movieTitleParam){
+
+    return  `
+        <a href="#" class="dropDownContent" 
+        onclick="arrListMovies.push('${movieTitleParam}'); 
+        console.log('${movieTitleParam} is added to the list'); 
+        localStorage.setItem('MovieList', JSON.stringify(arrListMovies))">List one</a>
+        
+        
+        <a href="#" class="dropDownContent createNewList" 
+        onclick="const listName = prompt('Enter list name'); 
+        console.log(listName)">New list +</a>
+        `
+}
 
 
+function displayMoviePoster(moviePoster, movieOverview, genreNames){
+
+    return  `
+        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${moviePoster}" alt="" />
+        <div class="figcaptionContainer">
+        <p class="contentFigcaption">${movieOverview}</p>
+        <p class="genreOneFigCaption">${genreNames}</p> `
+}
