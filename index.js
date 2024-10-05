@@ -153,8 +153,8 @@ function displayMovieHomePage(movieDataResults, genreList){
 
         movieContainer.innerHTML = `
                 <div class="img-container">
-                    <div class="littleIconContainer" >
-                    <img src="little icon.svg" class="littleIconMenu">
+                    <div class="littleIconContainer">
+                    <img src="little icon.svg" class="littleIconMenu" >
                         <div class="dropdownMenuContainer">
                         ${dropdownMenuContent(movie.title)}                          
                         </div>
