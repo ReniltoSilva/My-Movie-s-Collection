@@ -16,13 +16,13 @@ let movieCollection = {
         const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')    
         const movieGridContainer = document.querySelector('.movie-grid-container')
 
-        
+
         movieArray.forEach(element => {
 
             let movieYear = new Date(element.release_date) 
             const movieYearConverted = movieYear.getFullYear()
 
-            mainHOMEGridContainer.innerHTML = `
+            movieGridContainer.innerHTML = `
                 <div class="movie-grid-container">
                     <div class="img-container">
                         <img class="imgPoster" src="" alt="" />
