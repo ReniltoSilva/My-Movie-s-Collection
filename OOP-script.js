@@ -22,6 +22,7 @@ let movieCollection = {
             let movieYear = new Date(element.release_date) 
             const movieYearConverted = movieYear.getFullYear()
 
+
             movieGridContainer.innerHTML = `
                 <div class="movie-grid-container">
                     <div class="img-container">
@@ -32,6 +33,8 @@ let movieCollection = {
                         <p class="movie-year">${movieYearConverted}</p>
                     </div>
                 </div>`
+
+                mainHOMEGridContainer.appendChild(movieGridContainer) 
         });
 
         console.log(movieArray)
