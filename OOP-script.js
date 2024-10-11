@@ -34,8 +34,9 @@ let movieCollection = {
                     </div>
                 </div>`
 
-                mainHOMEGridContainer.appendChild(movieGridContainer) 
         });
+        
+                mainHOMEGridContainer.appendChild(movieGridContainer) 
 
         console.log(movieArray)
     }
