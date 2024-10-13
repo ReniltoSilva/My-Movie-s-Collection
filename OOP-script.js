@@ -25,16 +25,13 @@ let movieCollection = {
 
 
             movieGridContainer.innerHTML = `
-                <div class="movie-grid-container">
                     <div class="img-container">
                         <img class="imgPoster" src="" alt="" />
                     </div>
                     <div class="info-container">
                         <p class="movie-title">${element.title}</p>
                         <p class="movie-year">${movieYearConverted}</p>
-                    </div>
-                </div>`
-
+                    </div>`
         });
 
                 mainHOMEGridContainer.appendChild(movieGridContainer) 
