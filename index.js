@@ -129,8 +129,10 @@ function displayMovieHomePage(movieDataResults, genreList){
 
         const genreMovies = movie.genre_ids; // Array of genre IDs for the movie
         const movieYear = new Date(movie.release_date).getFullYear();
+
         const movieContainer = document.createElement('div')
         movieContainer.classList.add('movie-grid-container')
+        
         const moviePoster = movie.poster_path
         const movieOverview = movie.overview
 
