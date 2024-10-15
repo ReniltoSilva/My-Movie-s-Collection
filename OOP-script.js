@@ -19,7 +19,8 @@ let movieCollection = {
 
         movieArray.forEach(element => {
 
-            const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')    
+            const mainHOMEGridContainer = document.createElement('div')
+            mainHOMEGridContainer.classList.add('.main-Home-grid-container')    
             const movieGridContainer = document.querySelector('.movie-grid-container') 
 
             let movieYear = new Date(element.release_date) 
