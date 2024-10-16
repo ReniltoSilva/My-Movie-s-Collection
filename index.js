@@ -78,48 +78,43 @@ function fetchMovies(){
     searchBTN.addEventListener('click', () => fetchMoviesSearch(displayMovieHomePage))
         
 
-    function fetchMoviesSearch(){
+function fetchMoviesSearch(){
 
-        const inputValue = searchInput.value;
+    const inputValue = searchInput.value;
 
-        if(inputValue === ''){
+    if(inputValue === ''){
 
-            alert("Please, write something") 
-            
-            }else{
-                const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&query=${inputValue}&page=1`;
-                const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f866e5fc77be2f384a028b16d3'
+        alert("Please, write something") 
+        
+        }else{
+            const searchAPI = `https://api.themoviedb.org/3/search/movie?api_key=d85fc3f866e5fc77be2f384a028b16d3&language=en-US&query=${inputValue}&page=1`;
+            const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f866e5fc77be2f384a028b16d3'
 
-                    //This is to clean the home screen from previous search.
-                    homeGridContainer.innerHTML = ''
+            //This is to clean the home screen from previous search.
+            homeGridContainer.innerHTML = ''
 
-                    // Fetch both movies and genres in parallel
-                    Promise.all([
-                        fetch(searchAPI).then(response => response.json()),//Fetch movies
-                        fetch(genreApi).then(resp => resp.json())//Fetch genres
-                    ])
+            // Fetch both movies and genres in parallel
+            Promise.all([
+                fetch(searchAPI).then(response => response.json()),//Fetch movies
+                fetch(genreApi).then(resp => resp.json())//Fetch genres
+            ])
 
-                    .then(([movieData, genreData]) => {
-                        const movieDataResults = movieData.results;
-                        const genreList = genreData.genres;
+            .then(([movieData, genreData]) => {
+                const movieDataResults = movieData.results;
+                const genreList = genreData.genres;
 
-                        displayMovieHomePage(movieDataResults, genreList)
-                    })
-                    .catch(err => {
-                        console.log('Error:', err);
-                    });
-            }
+                displayMovieHomePage(movieDataResults, genreList)
+            })
+            .catch(err => {
+                console.log('Error:', err);
+            });
     }
+}
 
 
 
 //---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
-
-    
-
- const arrListMovies = [];
-
-
+const arrListMovies = [];
 
 function displayMovieHomePage(movieDataResults, genreList){
 
