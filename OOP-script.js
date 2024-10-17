@@ -1,8 +1,7 @@
-const movieCollection = {
-    tmdbAPIKey: 'd85fc3f866e5fc77be2f384a028b16d3',
-    tmdbAPI: `https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images`,
-    tmdbSearchAPI: `https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=${this.tmdbAPIKey}`,
-    teste: this.tmdbAPIKey,
+let movieCollection = {
+    tmdbPopularAPI: `https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images`,
+    tmdbSearchAPI: `https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=d85fc3f866e5fc77be2f384a028b16d3`,
+    
     //Object with search methods to display movies in the home page
     search: {
         searchInput: document.querySelector('.searchForm'),
@@ -34,7 +33,7 @@ const movieCollection = {
 
     fetchMovies: {
         fetchPopularMovies(){
-            fetch(movieCollection.tmdbAPI)
+            fetch(movieCollection.tmdbPopularAPI)
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
@@ -45,14 +44,8 @@ const movieCollection = {
 
         fetchMoviesSearch(){
 
-            fetch()
-
         }
     },
-
-
-    
-
 
     //Fetch and display movies in the home page
     displayMovieHomePage(movieArray){
