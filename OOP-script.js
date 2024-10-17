@@ -47,3 +47,17 @@ const movieCollection = {
 
 //Call fetch method and display movie data in the home page
 movieCollection.fetch()
+
+
+
+const searchInput = document.querySelector('.searchForm')
+const searchBtn = document.querySelector('.search-button')
+    searchBtn.addEventListener('click', () => {
+
+        let inputValue = searchInput.value
+        console.log(inputValue)
+
+        searchInput.value = '';
+    })
+
+//Method search and display movies in the home page
