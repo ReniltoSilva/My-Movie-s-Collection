@@ -1,6 +1,35 @@
 const movieCollection = {
     tmdbAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
 
+    //Object with search methods to display movies in the home page
+    search: {
+        //Search by click
+        searchClick(){
+            const searchBtn = document.querySelector('.search-button')
+            searchBtn.addEventListener('click', () => {
+        
+                let inputValue = searchInput.value
+                console.log(inputValue)
+        
+                searchInput.value = '';
+            })
+        },
+        //Search by submit
+        searchSubmit(){
+            const searchInput = document.querySelector('.searchForm')
+
+            const formContainer = document.querySelector('.formContainer')
+            formContainer.addEventListener('submit', (e) => {
+                e.preventDefault()
+            
+                let inputValue = searchInput.value
+                    console.log(inputValue)
+            
+                    searchInput.value = '';
+            })
+        }
+    },
+
 
     //Fetch movie data from tmdb
     fetch(){
@@ -50,14 +79,9 @@ movieCollection.fetch()
 
 
 
-const searchInput = document.querySelector('.searchForm')
-const searchBtn = document.querySelector('.search-button')
-    searchBtn.addEventListener('click', () => {
 
-        let inputValue = searchInput.value
-        console.log(inputValue)
 
-        searchInput.value = '';
-    })
 
-//Method search and display movies in the home page
+
+
+
