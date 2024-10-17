@@ -1,25 +1,59 @@
 let movieCollection = {
-    tmdbPopularAPI: `https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images`,
-    tmdbSearchAPI: `https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=d85fc3f866e5fc77be2f384a028b16d3`,
-    
+    tmdbPopularAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
+    mainHOMEGridContainer: document.querySelector('.main-Home-grid-container'),
+
     //Object with search methods to display movies in the home page
     search: {
         searchInput: document.querySelector('.searchForm'),
         formContainer: document.querySelector('.formContainer'),
-        searchBtn: document.querySelector('.search-button'),
+        mainHOMEGridContainer: document.querySelector('.main-Home-grid-container'),
+        
 
-        //Search Movies by click
-        searchClick(){
-            this.searchBtn.addEventListener('click', () => {
+    //Search Movies by click
+    searchClick(){
+        const searchBtn = document.querySelector('.search-button')
+
+        searchBtn.addEventListener('click', () => {
+
                 inputValue = this.searchInput.value
-                console.log(inputValue)
-            
-                this.searchInput.value = '';
+
+                this.mainHOMEGridContainer.innerHTML = '';
+
+                fetch(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&api_key=d85fc3f866e5fc77be2f384a028b16d3`)
+                    .then(resp => resp.json())
+                    .then(data => {
+                    const movies = data.results;
+                    
+                        movies.forEach(movie => {
+
+                            let movieGridContainer = document.createElement('div')
+                            movieGridContainer.classList.add('movie-grid-container') 
+                
+                            let movieYear = new Date(movie.release_date) 
+                            const movieYearConverted = movieYear.getFullYear()
+                
+                
+                            movieGridContainer.innerHTML = `
+                                    <div class="img-container">
+                                        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="" />
+                                    </div>
+                                    <div class="info-container">
+                                        <p class="movie-title">${movie.title}</p>
+                                        <p class="movie-year">${movieYearConverted}</p>
+                                    </div>`
+                
+                            this.mainHOMEGridContainer.appendChild(movieGridContainer) 
+
+                            console.log(movie.title)
+                        });
+                    })
             })
+        
+            this.searchInput.value = '';
         },
 
-        //Search Movies by submit
-        searchSubmit(){
+    //Search Movies by submit
+    searchSubmit(){
             this.formContainer.addEventListener('submit', (e) => {
                 e.preventDefault()
             
@@ -32,7 +66,8 @@ let movieCollection = {
     },
 
     fetchMovies: {
-        fetchPopularMovies(){
+
+    fetchPopularMovies(){
             fetch(movieCollection.tmdbPopularAPI)
             .then(resp => resp.json())
             .then(data => {
@@ -40,17 +75,13 @@ let movieCollection = {
                 const movieArray = data.results
                 movieCollection.displayMovieHomePage(movieArray)
             })
-        },
-
-        fetchMoviesSearch(){
-
         }
     },
 
     //Fetch and display movies in the home page
     displayMovieHomePage(movieArray){
         
-        const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')
+        
 
         movieArray.forEach(element => {
 
@@ -70,7 +101,7 @@ let movieCollection = {
                         <p class="movie-year">${movieYearConverted}</p>
                     </div>`
 
-            mainHOMEGridContainer.appendChild(movieGridContainer) 
+            this.mainHOMEGridContainer.appendChild(movieGridContainer) 
         });
     }
 }
