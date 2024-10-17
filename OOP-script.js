@@ -1,6 +1,5 @@
 const movieCollection = {
     tmdbAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
-    tmdbAPIImage: '',
 
 
     //Fetch movie data from tmdb
@@ -15,14 +14,13 @@ const movieCollection = {
     },
 
 
-    //Fetch and display movies int he home page
+    //Fetch and display movies in the home page
     displayMovieHomePage(movieArray){
         
         const mainHOMEGridContainer = document.querySelector('.main-Home-grid-container')
 
         movieArray.forEach(element => {
 
-            
             const movieGridContainer = document.createElement('div')
             movieGridContainer.classList.add('movie-grid-container') 
 
@@ -46,4 +44,6 @@ const movieCollection = {
 }
 
 
+
+//Call fetch method and display movie data in the home page
 movieCollection.fetch()
