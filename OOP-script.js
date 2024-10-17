@@ -1,46 +1,56 @@
 const movieCollection = {
     tmdbAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
+    
 
     //Object with search methods to display movies in the home page
     search: {
-        //Search by click
+        searchInput: document.querySelector('.searchForm'),
+        formContainer: document.querySelector('.formContainer'),
+        searchBtn: document.querySelector('.search-button'),
+
+        //Search Movies by click
         searchClick(){
-            const searchBtn = document.querySelector('.search-button')
-            searchBtn.addEventListener('click', () => {
-        
-                let inputValue = searchInput.value
+            this.searchBtn.addEventListener('click', () => {
+                inputValue = this.searchInput.value
                 console.log(inputValue)
-        
-                searchInput.value = '';
+            
+                this.searchInput.value = '';
             })
         },
-        //Search by submit
-        searchSubmit(){
-            const searchInput = document.querySelector('.searchForm')
 
-            const formContainer = document.querySelector('.formContainer')
-            formContainer.addEventListener('submit', (e) => {
+        //Search Movies by submit
+        searchSubmit(){
+            this.formContainer.addEventListener('submit', (e) => {
                 e.preventDefault()
             
-                let inputValue = searchInput.value
-                    console.log(inputValue)
+                let inputValue = this.searchInput.value
+                console.log(inputValue)
             
-                    searchInput.value = '';
+                this.searchInput.value = '';
             })
         }
     },
 
+    fetchMovies: {
+        fetchPopularMovies(){
+                fetch(){
+                    fetch(this.tmdbAPI)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data)
+                        const movieArray = data.results
+                        this.displayMovieHomePage(movieArray)
+                    })
+                }
+        },
 
-    //Fetch movie data from tmdb
-    fetch(){
-        fetch(this.tmdbAPI)
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            const movieArray = data.results
-            this.displayMovieHomePage(movieArray)
-        })
+        fetchMoviesSearch(){
+
+        }
     },
+
+
+    
 
 
     //Fetch and display movies in the home page
@@ -66,7 +76,6 @@ const movieCollection = {
                         <p class="movie-year">${movieYearConverted}</p>
                     </div>`
 
-                    console.log(element.poster_path)
             mainHOMEGridContainer.appendChild(movieGridContainer) 
         });
     }
@@ -76,8 +85,8 @@ const movieCollection = {
 //Call fetch method and display movie data in the home page
 movieCollection.fetch()
 
-
-
+movieCollection.search.searchClick()
+movieCollection.search.searchSubmit()
 
 
 
