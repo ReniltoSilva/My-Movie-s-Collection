@@ -1,6 +1,7 @@
 let movieCollection = {
     tmdbPopularAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
     mainHOMEGridContainer: document.querySelector('.main-Home-grid-container'),
+    
 
     //Object with search methods to display movies in the home page
     search: {
@@ -52,12 +53,15 @@ let movieCollection = {
             this.searchInput.value = '';
         },
 
+
     //Search Movies by submit
     searchSubmit(){
             this.formContainer.addEventListener('submit', (e) => {
                 e.preventDefault()
             
                 let inputValue = this.searchInput.value
+
+                
                 console.log(inputValue)
             
                 this.searchInput.value = '';
@@ -66,7 +70,6 @@ let movieCollection = {
     },
 
     fetchMovies: {
-
     fetchPopularMovies(){
             fetch(movieCollection.tmdbPopularAPI)
             .then(resp => resp.json())
@@ -78,10 +81,9 @@ let movieCollection = {
         }
     },
 
+
     //Fetch and display movies in the home page
     displayMovieHomePage(movieArray){
-        
-        
 
         movieArray.forEach(element => {
 
@@ -112,9 +114,5 @@ movieCollection.fetchMovies.fetchPopularMovies()
 
 movieCollection.search.searchClick()
 movieCollection.search.searchSubmit()
-
-
-
-
 
 
