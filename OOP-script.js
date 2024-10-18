@@ -1,7 +1,7 @@
 let movieCollection = {
     tmdbPopularAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
     mainHOMEGridContainer: document.querySelector('.main-Home-grid-container'),
-    
+    movieList: [],
 
     //Object with search methods to display movies in the home page
     search: {
@@ -67,7 +67,12 @@ let movieCollection = {
     //Fetch and display movies in the home page
     displayMovieHomePage(movieArray, moviesClick, moviesSubmit){
 
+        // let movieList = [] 
+        
+
         (movieArray || moviesClick || moviesSubmit).forEach(element => {
+
+            let movietitle = element.title
 
             const movieGridContainer = document.createElement('div')
             movieGridContainer.classList.add('movie-grid-container') 
@@ -77,11 +82,11 @@ let movieCollection = {
 
 
             movieGridContainer.innerHTML = `
-                    <div class="img-container">
+                    <div class="img-container" onclick="${this.movieList.push(movietitle)}">
                         <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" />
                     </div>
                     <div class="info-container">
-                        <p class="movie-title">${element.title}</p>
+                        <p class="movie-title">${movietitle}</p>
                         <p class="movie-year">${movieYearConverted}</p>
                     </div>`
 
