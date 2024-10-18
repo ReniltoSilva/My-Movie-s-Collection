@@ -23,34 +23,14 @@ let movieCollection = {
                 fetch(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&api_key=d85fc3f866e5fc77be2f384a028b16d3`)
                     .then(resp => resp.json())
                     .then(data => {
-                    const movies = data.results;
+                    const moviesClick = data.results;
+
+                    movieCollection.displayMovieHomePage(moviesClick)
+                        
+                    this.searchInput.value = '';
                     
-                        movies.forEach(movie => {
-
-                            let movieGridContainer = document.createElement('div')
-                            movieGridContainer.classList.add('movie-grid-container') 
-                
-                            let movieYear = new Date(movie.release_date) 
-                            const movieYearConverted = movieYear.getFullYear()
-                
-                
-                            movieGridContainer.innerHTML = `
-                                    <div class="img-container">
-                                        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="" />
-                                    </div>
-                                    <div class="info-container">
-                                        <p class="movie-title">${movie.title}</p>
-                                        <p class="movie-year">${movieYearConverted}</p>
-                                    </div>`
-                
-                            this.mainHOMEGridContainer.appendChild(movieGridContainer) 
-
-                            console.log(movie.title)
-                        });
                     })
-            })
-        
-            this.searchInput.value = '';
+            })  
         },
 
 
@@ -59,12 +39,16 @@ let movieCollection = {
             this.formContainer.addEventListener('submit', (e) => {
                 e.preventDefault()
             
+                this.mainHOMEGridContainer.innerHTML = '';
+
                 let inputValue = this.searchInput.value
 
                 fetch(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&api_key=d85fc3f866e5fc77be2f384a028b16d3`)
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data.results)
+                    let moviesSubmit = data.results;
+
+                    movieCollection.displayMovieHomePage(moviesSubmit)
                 })
 
 
@@ -89,9 +73,9 @@ let movieCollection = {
 
 
     //Fetch and display movies in the home page
-    displayMovieHomePage(movieArray){
+    displayMovieHomePage(movieArray, moviesClick, moviesSubmit){
 
-        movieArray.forEach(element => {
+        (movieArray || moviesClick || moviesSubmit).forEach(element => {
 
             const movieGridContainer = document.createElement('div')
             movieGridContainer.classList.add('movie-grid-container') 
@@ -116,7 +100,7 @@ let movieCollection = {
 
 
 //Call fetch method and display movie data in the home page
-movieCollection.fetchMovies.fetchPopularMovies()
+movieCollection.fetchPopularMovies()
 
 movieCollection.search.searchClick()
 movieCollection.search.searchSubmit()
