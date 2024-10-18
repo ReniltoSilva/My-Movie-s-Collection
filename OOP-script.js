@@ -10,32 +10,22 @@ let movieCollection = {
         mainHOMEGridContainer: document.querySelector('.main-Home-grid-container'),
         
 
-    //Search Movies by click
-    searchClick(){
-        const searchBtn = document.querySelector('.search-button')
+        //Search Movies by click
+        searchClick(){
+            const searchBtn = document.querySelector('.search-button')
 
-        searchBtn.addEventListener('click', () => {
+            searchBtn.addEventListener('click', () => {
 
-                inputValue = this.searchInput.value
+                    inputValue = this.searchInput.value
 
-                this.mainHOMEGridContainer.innerHTML = '';
+                    this.mainHOMEGridContainer.innerHTML = '';
 
-                fetch(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&api_key=d85fc3f866e5fc77be2f384a028b16d3`)
-                    .then(resp => resp.json())
-                    .then(data => {
-                    const moviesClick = data.results;
-
-                    movieCollection.displayMovieHomePage(moviesClick)
-                        
-                    this.searchInput.value = '';
-                    
-                    })
-            })  
+                    movieCollection.fetchMovieData(inputValue)
+                })  
         },
 
-
-    //Search Movies by submit
-    searchSubmit(){
+        //Search Movies by submit
+        searchSubmit(){
             this.formContainer.addEventListener('submit', (e) => {
                 e.preventDefault()
             
@@ -43,22 +33,24 @@ let movieCollection = {
 
                 let inputValue = this.searchInput.value
 
-                fetch(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&api_key=d85fc3f866e5fc77be2f384a028b16d3`)
-                .then(resp => resp.json())
-                .then(data => {
-                    let moviesSubmit = data.results;
-
-                    movieCollection.displayMovieHomePage(moviesSubmit)
-                })
-
-
-
-                console.log(inputValue)
-            
-                this.searchInput.value = '';
+                movieCollection.fetchMovieData(inputValue)   
+                
             })
         }
     },
+
+    fetchMovieData(inputValue){
+            fetch(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&api_key=d85fc3f866e5fc77be2f384a028b16d3`)
+                    .then(resp => resp.json())
+                    .then(data => {
+                    const moviesClick = data.results;
+
+                    movieCollection.displayMovieHomePage(moviesClick)
+                        
+                    this.search.searchInput.value = '';
+
+                })
+        },
 
     
     fetchPopularMovies(){
