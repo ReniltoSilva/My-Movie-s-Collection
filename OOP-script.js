@@ -61,7 +61,14 @@ let movieCollection = {
             
                 let inputValue = this.searchInput.value
 
-                
+                fetch(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&api_key=d85fc3f866e5fc77be2f384a028b16d3`)
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data.results)
+                })
+
+
+
                 console.log(inputValue)
             
                 this.searchInput.value = '';
@@ -69,16 +76,15 @@ let movieCollection = {
         }
     },
 
-    fetchMovies: {
+    
     fetchPopularMovies(){
-            fetch(movieCollection.tmdbPopularAPI)
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data)
-                const movieArray = data.results
-                movieCollection.displayMovieHomePage(movieArray)
-            })
-        }
+        fetch(movieCollection.tmdbPopularAPI)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            const movieArray = data.results
+            movieCollection.displayMovieHomePage(movieArray)
+        })
     },
 
 
