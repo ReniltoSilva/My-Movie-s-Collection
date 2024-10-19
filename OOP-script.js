@@ -66,8 +66,6 @@ let movieCollection = {
 
     //Fetch and display movies in the home page
     displayMovieHomePage(movieArray, moviesClick, moviesSubmit){
-
-        // let movieList = [] 
         
 
         (movieArray || moviesClick || moviesSubmit).forEach(element => {
@@ -94,12 +92,32 @@ let movieCollection = {
 
     addMovieToLIst(titleParam, posterParam){
 
-        return `<div class="img-container" onclick="movieCollection.movieList.push('${titleParam}'); 
-        console.log('${titleParam} added to the list ${movieCollection.movieList}')">
+        return `<div class="img-container" onclick="if(movieCollection.movieList.includes('${titleParam}')){
+                console.log('${titleParam} is already added to the list')
+                }else {
+                movieCollection.movieList.push('${titleParam}');
+                console.log('${titleParam} added to the list')}">
                 <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${posterParam}" alt="" />
                 </div>`
     }
 }
+
+
+
+// if(movieCollection.movieList.find(titleParam)){
+//     console.log(`Movie ${titleParam} already added to the list`)
+// }else{
+//     movieCollection.movieList.push('${titleParam}
+// }
+
+
+
+// return `<div class="img-container" onclick="movieCollection.movieList.push('${titleParam}'); 
+//         console.log('${titleParam} added to the list')">
+//                 <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${posterParam}" alt="" />
+//                 </div>`
+
+
 
 
 //Call fetch method and display movie data in the home page
