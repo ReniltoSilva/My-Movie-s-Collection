@@ -4,6 +4,7 @@ const arrListConverted = JSON.parse(localStorage.getItem('MovieList'));
 const gitAPI = 'https://api.github.com/users/ReniltoSilva'
 const imgProfileContainer = document.querySelector('.imgContainer')
 const generalListContainer = document.querySelector('.generalMovieListContainer')
+
 //Movie lists
 const listContainer = document.querySelector('.ListContainer')    
 

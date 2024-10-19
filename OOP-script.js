@@ -1,7 +1,7 @@
 let movieCollection = {
     tmdbPopularAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
     mainHOMEGridContainer: document.querySelector('.main-Home-grid-container'),
-    movieList: [],
+    movieListOOP: [],
 
     //Object with search methods to display movies in the home page
     search: {
@@ -92,33 +92,26 @@ let movieCollection = {
 
     addMovieToLIst(titleParam, posterParam){
 
-        return `<div class="img-container" onclick="if(movieCollection.movieList.includes('${titleParam}')){
-                alert('${titleParam} is already added to the list')
+        return `<div class="img-container" onclick="if(JSON.parse(localStorage.getItem('movieListOOP')).includes('${titleParam}')){
+                console.log('${titleParam} is already added to the list')
                 }else {
-                movieCollection.movieList.push('${titleParam}');
+                movieCollection.movieListOOP.push('${titleParam}');
+                localStorage.setItem('movieListOOP', JSON.stringify(movieCollection.movieListOOP));
                 
                 console.log('${titleParam} added to the list')}">
+
+                <div class="littleIconContainer">
+                    <div class="littleIconMenu">
+                        <div class="dropdownMenuContainer">
+                        </div>
+                    </div>
+                </div>
+                
+
                 <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${posterParam}" alt="" />
                 </div>`
     }
 }
-
-
-
-// if(movieCollection.movieList.find(titleParam)){
-//     console.log(`Movie ${titleParam} already added to the list`)
-// }else{
-//     movieCollection.movieList.push('${titleParam}
-// }
-
-
-
-// return `<div class="img-container" onclick="movieCollection.movieList.push('${titleParam}'); 
-//         console.log('${titleParam} added to the list')">
-//                 <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${posterParam}" alt="" />
-//                 </div>`
-
-
 
 
 //Call fetch method and display movie data in the home page
