@@ -72,7 +72,8 @@ let movieCollection = {
 
         (movieArray || moviesClick || moviesSubmit).forEach(element => {
 
-            let movietitle = element.title
+            let elementPoster = element.poster_path;
+            let elementTitle = element.title;
 
             const movieGridContainer = document.createElement('div')
             movieGridContainer.classList.add('movie-grid-container') 
@@ -80,18 +81,23 @@ let movieCollection = {
             let movieYear = new Date(element.release_date) 
             const movieYearConverted = movieYear.getFullYear()
 
-
             movieGridContainer.innerHTML = `
-                    <div class="img-container" onclick="${this.movieList.push(movietitle)}">
-                        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="" />
-                    </div>
+                    ${this.addMovieToLIst(elementTitle, elementPoster)}
                     <div class="info-container">
-                        <p class="movie-title">${movietitle}</p>
+                        <p class="movie-title">${element.title}</p>
                         <p class="movie-year">${movieYearConverted}</p>
                     </div>`
 
             this.mainHOMEGridContainer.appendChild(movieGridContainer) 
         });
+    },
+
+    addMovieToLIst(titleParam, posterParam){
+
+        return `<div class="img-container" onclick="movieCollection.movieList.push('${titleParam}'); 
+        console.log('${titleParam} added to the list ${movieCollection.movieList}')">
+                <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${posterParam}" alt="" />
+                </div>`
     }
 }
 
@@ -101,5 +107,4 @@ movieCollection.fetchPopularMovies()
 
 movieCollection.search.searchClick()
 movieCollection.search.searchSubmit()
-
 
