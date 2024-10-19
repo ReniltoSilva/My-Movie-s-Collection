@@ -93,9 +93,10 @@ let movieCollection = {
     addMovieToLIst(titleParam, posterParam){
 
         return `<div class="img-container" onclick="if(movieCollection.movieList.includes('${titleParam}')){
-                console.log('${titleParam} is already added to the list')
+                alert('${titleParam} is already added to the list')
                 }else {
                 movieCollection.movieList.push('${titleParam}');
+                
                 console.log('${titleParam} added to the list')}">
                 <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${posterParam}" alt="" />
                 </div>`
