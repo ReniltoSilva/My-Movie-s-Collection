@@ -5,6 +5,9 @@ const apiPopular = 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f86
 const searchAPI = 'https://api.themoviedb.org/3/search/keyword?query=${query}&page=1'
 const genreApi = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f866e5fc77be2f384a028b16d3'
 
+const apiPopularLocalHost = 'https://api.themoviedb.org/3/movie/popular?api_key=http://localhost:3000/movies&append_to_response=images,'
+
+
 const homeGridContainer = document.querySelector('.main-Home-grid-container')
 
 
@@ -20,7 +23,7 @@ document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 //So, after one API is fetched the other one will be called after.
 function fetchMovies(){
 
-    fetch(apiPopular)
+    fetch(apiPopularLocalHost)
         .then(response => {
             if(!response.ok){
                 throw new Error("Failed to fetch movies");
