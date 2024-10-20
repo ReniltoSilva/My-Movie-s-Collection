@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
 //So, after one API is fetched the other one will be called after.
 function fetchMovies(){
 
-    fetch(apiPopularLocalHost)
+    fetch(apiPopular)
         .then(response => {
             if(!response.ok){
                 throw new Error("Failed to fetch movies");
