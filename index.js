@@ -10,14 +10,8 @@ const apiPopularLocalHost = 'https://api.themoviedb.org/3/movie/popular?api_key=
 
 const homeGridContainer = document.querySelector('.main-Home-grid-container')
 
-
-
-
-
 //--------------------------------------API FETCHING FUNCTION--------------------------------------//
-
 document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
-
 
 //Here I fetch both APIs, notice that I can fetch an API inside another API being fetched.
 //So, after one API is fetched the other one will be called after.
@@ -149,8 +143,6 @@ function displayMovieHomePage(movieDataResults, genreList){
         const genreNames = genreMovies.map(genreId => genreIdToName[genreId]).join(', ');
         console.log(genreNames)
     
-        
-
         movieContainer.innerHTML = `
                 <div class="img-container">
                     <div class="littleIconContainer">
