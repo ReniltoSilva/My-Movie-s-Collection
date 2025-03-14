@@ -136,12 +136,11 @@ function displayMovieHomePage(movieDataResults, genreList){
                 //and returnin the value to the new array genreNames
                 const genreNames = genreMovies.map(genreId => genreIdToName[genreId]);
                 console.log(genreNames)
-        
 
                 movieContainer.innerHTML = `
                         <div class="img-container">
                             <div class="littleIconContainer">
-                            <img src="little icon.svg" class="littleIconMenu" >
+                            <img src="little icon.svg" class="littleIconMenu">
                                 <div class="dropdownMenuContainer">
                                 ${dropdownMenuContent(movie.title)}                          
                                 </div>
@@ -154,9 +153,18 @@ function displayMovieHomePage(movieDataResults, genreList){
                             <p class="movie-title">${movie.title}</p>
                             <p class="movie-year">${movieYear}</p>
                         </div>`
+                        
+                     // Attach event listener to the icon AFTER inserting it into the DOM
+                        const littleIcon = movieContainer.querySelector('.littleIconMenu');
+                        littleIcon.addEventListener('click', () => {
+                            
+                            
 
-            homeGridContainer.appendChild(movieContainer)
-        })
+                        });
+
+
+                        homeGridContainer.appendChild(movieContainer)
+                    })
 }
 
 
