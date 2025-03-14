@@ -191,3 +191,127 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
         <p class="contentFigcaption">${movieOverview}</p>
         <p class="genreOneFigCaption">${genreNames}</p> `
 }
+
+
+//EXERCISE 1
+// const countries = [
+//     { code: "US", name: "United States" },
+//     { code: "BR", name: "Brazil" },
+//     { code: "FR", name: "France" }
+// ];
+
+// const emptyObj = {}
+
+// countries.forEach((element) => {
+
+//     emptyObj[element.code] = element.name
+
+// })
+
+// console.log(emptyObj)
+
+//EXERCISE 2
+// const users = {
+//     101: "Alice",
+//     102: "Bob",
+//     103: "Charlie"
+// };
+
+// const userIDs = [102, 101, 103]; 
+
+
+// const newArray = userIDs.map((element) => {
+//     return users[element]
+// })
+
+// console.log(newArray)
+
+//EXERCISE 3
+// const productLookup = {
+//     1: "Laptop",
+//     2: "Keyboard",
+//     3: "Mouse",
+//     4: "Monitor"
+// };
+
+// const cartItems = [1, 3, 2, 4, 3];
+
+// const newArr2 = cartItems.map((element) => productLookup[element])
+// console.log(newArr2)
+
+// // EXERCISE 4
+// const students = [
+//     { id: 201, name: "Lucas" },
+//     { id: 202, name: "Emma" },
+//     { id: 203, name: "Olivia" }
+// ];
+
+// const grades = {
+//     201: "A",
+//     202: '',
+//     203: 'A+'
+// };
+
+// const objLU = []
+
+// const newGrades = students.map((element) => {
+//     return {name: element.name,
+//             grades: grades[element.id] || 'N/A'
+//         }
+// })
+
+// console.log(newGrades)
+
+
+// //EXERCISE 5
+// const departmentLookup = {
+//     10: "Engineering",
+//     20: "HR",
+//     30: "Marketing"
+// };
+
+// const employees = [
+//     { name: "Alice", departmentId: 10 },
+//     { name: "Bob", departmentId: 20 },
+//     { name: "Charlie", departmentId: 30 },
+//     { name: "David", departmentId: 10 }
+// ];
+
+// const arrDepartment = employees.map((element) => {
+
+//     return {name: element.name,
+//             department: departmentLookup[element.departmentId]
+//     }
+// })
+
+// console.log(arrDepartment)
+
+
+//EXERCISE 6
+const daysLookup = {
+    Mon: "Monday",
+    Tue: "Tuesday",
+    Wed: "Wednesday",
+    Thu: "Thursday",
+    Fri: "Friday",
+    Sat: "Saturday",
+    Sun: "Sunday"
+};
+
+const messages = [
+    "Meeting on Mon",
+    "Gym on Tue",
+    "Party on Fri",
+    "Study on Sun"
+];
+
+
+const newDays = messages.map((msg) => {
+
+    const abbrev = msg.slice(-3)
+
+    return msg.replace(daysLookup[abbrev]) 
+})
+
+
+console.log(newDays)
