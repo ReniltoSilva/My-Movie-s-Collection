@@ -193,24 +193,25 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 }
 
 
-//EXERCISE 1
+// // EXERCISE 1
 // const countries = [
 //     { code: "US", name: "United States" },
 //     { code: "BR", name: "Brazil" },
 //     { code: "FR", name: "France" }
 // ];
 
-// const emptyObj = {}
+// const lookUpObj = {}
 
 // countries.forEach((element) => {
-
-//     emptyObj[element.code] = element.name
-
+   
+//     lookUpObj[element.code] = element.name
 // })
 
-// console.log(emptyObj)
+// console.log(lookUpObj)
 
-//EXERCISE 2
+
+
+// //EXERCISE 2
 // const users = {
 //     101: "Alice",
 //     102: "Bob",
@@ -219,14 +220,15 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 
 // const userIDs = [102, 101, 103]; 
 
-
-// const newArray = userIDs.map((element) => {
+// const newUserArray = userIDs.map((element) => {
 //     return users[element]
 // })
 
-// console.log(newArray)
+// console.log(newUserArray)
 
-//EXERCISE 3
+
+
+// //EXERCISE 3
 // const productLookup = {
 //     1: "Laptop",
 //     2: "Keyboard",
@@ -236,8 +238,13 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 
 // const cartItems = [1, 3, 2, 4, 3];
 
-// const newArr2 = cartItems.map((element) => productLookup[element])
-// console.log(newArr2)
+// const arrayObjects = cartItems.map((element) => {
+//     return productLookup[element]
+// })
+
+// console.log(arrayObjects)
+
+
 
 // // EXERCISE 4
 // const students = [
@@ -248,34 +255,65 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 
 // const grades = {
 //     201: "A",
-//     202: '',
-//     203: 'A+'
+//     203: 'A+',
+//     202: ''
 // };
 
-// const objLU = []
+// // const arrayStudents = []
 
+// // students.map((element) => {
+// //     arrayStudents.push({
+// //         name: element.name,
+// //         grade: grades[element.id] || 'N/A'
+// //     })
+// // })
+
+// // console.log(arrayStudents)
+
+// //IT ALSO CAN BE DONE THIS WAY, WITHOUT USING PUSH() BUT THEN YOU NEED THE KEYWORD "RETURN"
+// //IF YOU ARE NOT USING THE "RETURN" THAN IT'S JUST BEST TO USE THE "FOREACH" BECAUSE IT'S NOT THE RIGHT METHOD.
 // const newGrades = students.map((element) => {
-//     return {name: element.name,
-//             grades: grades[element.id] || 'N/A'
-//         }
+//     return {
+//         name: element.name,
+//         grade: grades[element.id]
+//     }
 // })
-
 // console.log(newGrades)
 
 
-// //EXERCISE 5
-// const departmentLookup = {
-//     10: "Engineering",
-//     20: "HR",
-//     30: "Marketing"
-// };
+//EXERCISE 5
+const departmentLookup = {
+    10: "Engineering",
+    20: "HR",
+    30: "Marketing"
+};
 
-// const employees = [
-//     { name: "Alice", departmentId: 10 },
-//     { name: "Bob", departmentId: 20 },
-//     { name: "Charlie", departmentId: 30 },
-//     { name: "David", departmentId: 10 }
-// ];
+const employees = [
+    { name: "Alice", departmentId: 10 },
+    { name: "Bob", departmentId: 20 },
+    { name: "Charlie", departmentId: 30 },
+    { name: "David", departmentId: 10 }
+];
+
+const newDepartment = employees.map((element) => {
+    return {
+        name: element.name,
+        departmentId: departmentLookup[element.departmentId]
+    }
+})
+console.log(newDepartment)
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const arrDepartment = employees.map((element) => {
 
