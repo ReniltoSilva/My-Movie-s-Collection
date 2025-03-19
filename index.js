@@ -281,75 +281,96 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 // console.log(newGrades)
 
 
-//EXERCISE 5
-const departmentLookup = {
-    10: "Engineering",
-    20: "HR",
-    30: "Marketing"
-};
+// //EXERCISE 5
+// const departmentLookup = {
+//     10: "Engineering",
+//     20: "HR",
+//     30: "Marketing"
+// };
 
-const employees = [
-    { name: "Alice", departmentId: 10 },
-    { name: "Bob", departmentId: 20 },
-    { name: "Charlie", departmentId: 30 },
-    { name: "David", departmentId: 10 }
-];
+// const employees = [
+//     { name: "Alice", departmentId: 10 },
+//     { name: "Bob", departmentId: 20 },
+//     { name: "Charlie", departmentId: 30 },
+//     { name: "David", departmentId: 10 }
+// ];
 
-const newDepartment = employees.map((element) => {
-    return {
-        name: element.name,
-        departmentId: departmentLookup[element.departmentId]
-    }
-})
-console.log(newDepartment)
+// const newDepartment = employees.map((element) => {
+//     return {
+//         name: element.name,
+//         departmentId: departmentLookup[element.departmentId]
+//     }
+// })
+// console.log(newDepartment)
+
+// //EXERCISE 6
+// const daysLookup = {
+//     Mon: "Monday",
+//     Tue: "Tuesday",
+//     Wed: "Wednesday",
+//     Thu: "Thursday",
+//     Fri: "Friday",
+//     Sat: "Saturday",
+//     Sun: "Sunday"
+// };
+
+// // const messages = [
+// //     "Meeting on Mon",
+// //     "Gym on Tue",
+// //     "Party on Fri",
+// //     "Study on Sun"
+// // ];
+
+// const messages = [
+//     "Mon I got to work",
+//     "Tue is day off",
+//     "Fri is a busy day",
+//     "Sun I got to study"
+// ];
+
+// const updatedMessages = messages.map(element => {
+//     // Extract the last 3 characters (Mon, Tue, etc.)
+//     const abbrev = element.slice(0, 3); 
+
+//     // Replace abbreviation with full name
+//     return element.replace(abbrev, daysLookup[abbrev]);
+// });
+
+// console.log(updatedMessages)
+
+// //EXERCISE 7
+// const roles = {
+//     1: "Admin",
+//     2: "Editor",
+//     3: "Viewer"
+// };
+
+// const users = [
+//     { id: 101, name: "Alice", roleId: 1 },
+//     { id: 102, name: "Bob", roleId: 3 },
+//     { id: 103, name: "Charlie", roleId: 2 }
+// ];
 
 
-
-
-
-
-
-
-
-
-
-
-
-// const arrDepartment = employees.map((element) => {
-
-//     return {name: element.name,
-//             department: departmentLookup[element.departmentId]
+// const newRole = users.map((role) => {
+//     return {
+//         id: role.id,
+//         name: role.name,
+//         roleId: roles[role.roleId]
 //     }
 // })
 
-// console.log(arrDepartment)
+// console.log(newRole)
 
-
-//EXERCISE 6
-const daysLookup = {
-    Mon: "Monday",
-    Tue: "Tuesday",
-    Wed: "Wednesday",
-    Thu: "Thursday",
-    Fri: "Friday",
-    Sat: "Saturday",
-    Sun: "Sunday"
-};
-
-const messages = [
-    "Meeting on Mon",
-    "Gym on Tue",
-    "Party on Fri",
-    "Study on Sun"
+//EXERCISE 9
+const studentGrades = [
+    { name: "Alice", grade: "A" },
+    { name: "Bob", grade: "B" },
+    { name: "Charlie", grade: "A" },
+    { name: "David", grade: "C" },
+    { name: "Eve", grade: "B" }
 ];
 
+const groupStudentsGrades = studentGrades.map((gra)) //STOPPED HERE
 
-const newDays = messages.map((msg) => {
-
-    const abbrev = msg.slice(-3)
-
-    return msg.replace(daysLookup[abbrev]) 
-})
-
-
-console.log(newDays)
+console.log(groupStudentsGrades)
