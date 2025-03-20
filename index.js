@@ -255,8 +255,8 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 
 // const grades = {
 //     201: "A",
-//     203: 'A+',
-//     202: ''
+//     203: '',
+//     202: 'A+'
 // };
 
 // // const arrayStudents = []
@@ -362,15 +362,15 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 
 // console.log(newRole)
 
-//EXERCISE 9
-const studentGrades = [
-    { name: "Alice", grade: "A" },
-    { name: "Bob", grade: "B" },
-    { name: "Charlie", grade: "A" },
-    { name: "David", grade: "C" },
-    { name: "Eve", grade: "B" }
-];
+// //EXERCISE 9
+// const studentGrades = [
+//     { name: "Alice", grade: "A" },
+//     { name: "Bob", grade: "B" },
+//     { name: "Charlie", grade: "A" },
+//     { name: "David", grade: "C" },
+//     { name: "Eve", grade: "B" }
+// ];
 
-const groupStudentsGrades = studentGrades.map((gra)) //STOPPED HERE
+// const groupStudentsGrades = studentGrades.map((gra)) //STOPPED HERE
 
-console.log(groupStudentsGrades)
+// console.log(groupStudentsGrades)
