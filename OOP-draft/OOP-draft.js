@@ -81,8 +81,8 @@ let movieCollection = {
 
         (movieArray || moviesClick || genreIDs).forEach(element => {
             
-            console.log(genreIDs)
-            console.log(movieArray)
+            // console.log(genreIDs)
+            // console.log(movieArray)
             let elementPoster = element.poster_path;
             let elementTitle = element.title;
 
@@ -137,4 +137,3 @@ movieCollection.fetchPopularMovies()
 
 movieCollection.search.searchClick()
 movieCollection.search.searchSubmit()
-

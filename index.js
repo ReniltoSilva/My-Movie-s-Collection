@@ -31,6 +31,7 @@ function fetchMovies(){
                 mainHomeGrid.innerHTML = '';
 
                 let movieDataResults = data.results;
+                console.log(movieDataResults)
                 if(!movieDataResults || movieDataResults.length === 0){
                     console.error('No movies found')
                 }
@@ -125,6 +126,7 @@ function displayMovieHomePage(movieDataResults, genreList){
             movieContainer.classList.add('movie-grid-container')
 
             const moviePoster = movie.poster_path
+            const movieBackdropPath = movie.backdrop_path
             const movieOverview = movie.overview
 
                 // Create an array to store the genre names for this movie
@@ -138,10 +140,6 @@ function displayMovieHomePage(movieDataResults, genreList){
                 .map((genreId) => genreIdToName[genreId])
                 .map((element) => `<p class="${element}">${element.toUpperCase()}</p>`)
   
-                console.log(genreNames)
-                console.log(genreNames.join(''))
-
-
                 movieContainer.innerHTML = `
                         <div class="img-container">
                             <div class="littleIconContainer">
@@ -150,7 +148,7 @@ function displayMovieHomePage(movieDataResults, genreList){
                                 ${dropdownMenuContent(movie.title)}                          
                                 </div>
                             </div>
-                                ${displayMoviePoster(moviePoster, movieOverview, genreNames)}
+                                ${displayMoviePoster(moviePoster, movieBackdropPath, movieOverview, genreNames)}
                             </div>
                         </div>
             
@@ -166,13 +164,8 @@ function displayMovieHomePage(movieDataResults, genreList){
                         
 
                     });
-
-
                 homeGridContainer.appendChild(movieContainer)
-                console.log(genreNames)
-
         })
-
 }
 
 
@@ -191,10 +184,10 @@ function dropdownMenuContent(movieTitleParam){
         `
 }
 
-function displayMoviePoster(moviePoster, movieOverview, genreNames){
+function displayMoviePoster(moviePoster, movieBackdropPath, movieOverview, genreNames){
 
     return  `
-        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${moviePoster}" alt="" />
+        <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${moviePoster || movieBackdropPath}" alt="" />
         <div class="figcaptionContainer">
         <p class="contentFigcaption">${movieOverview}</p>
         <div class="genreOneFigCaption">
@@ -384,20 +377,10 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 //     { name: "Eve", grade: "B" }
 // ];
 
-// const groupStudentsGrades = studentGrades.map((gra)) //STOPPED HERE
 
-// console.log(groupStudentsGrades)
+// let groupStudentsGrades = studentGrades.reduce()//STOPPED HERE
 
 
-// const arrayTest = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff']
 
-// function shuffleArray(array){
-//     for(let i = array.length - 1; i > 0; i--){
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [array[i], array[j]] = [array[j], array[i]];
-//         console.log(array[j], array[i])
-//     }
-//     return array;
-// }
+// console.log(newGroup)
 
-// console.log(shuffleArray(arrayTest))
