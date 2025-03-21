@@ -209,15 +209,16 @@ li:hover{
 
 .genreOneFigCaption{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 90%;
     height: 20%;
     margin-bottom: 18px;
-    background-color: brown;
+    background-color: rgb(226, 226, 226);
 }
 
-.genre-Adventure{
+/* .genre-Adventure{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,7 +252,7 @@ li:hover{
     margin: 1px;
     border-radius: 3px;
     background-color: rgb(84, 214, 103);
-}
+} */
 
 .textInsideSpanGenre{
     width: 100%;
@@ -353,6 +354,118 @@ li:hover{
 }
 
 
+.Fantasy{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 30px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(151, 151, 151);
+    border-radius: 10px;
+    background-color: chartreuse;
+}
+.Action{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 30px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(151, 151, 151);
+    border-radius: 10px;
+}
+.Romance{
+    text-align: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(255, 0, 0);
+}
+.Documentary{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    background-color: rgb(0, 123, 255);
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+}
+.Comedy{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(253, 255, 140);
+}
+.Drama{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(255, 140, 251);
+}
+.Family{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(140, 232, 255);
+}
+.Music{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(140, 169, 255);
+}
+.ScienceFiction{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(140, 232, 255);
+}
+.Family{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 70px;
+    height: 20px;
+    border-radius: 50px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(140, 232, 255);
+}
 
 /* -------------------------------------------- ORIGINAL ------------------------------------------------------------ */
 /* 

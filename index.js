@@ -53,7 +53,6 @@ function fetchMovies(){
                     }
 
                     displayMovieHomePage(movieDataResults, genreList)
-                    console.log(genreData)
                 })
                 .catch(err => console.log('Genre Fetch Error:', err))
         })
@@ -110,8 +109,6 @@ const arrListMovies = [];
 function displayMovieHomePage(movieDataResults, genreList){
 
         const genreIdToName = {}
-        console.log(genreIdToName)
-        console.log(genreList)
 
         genreList.forEach((genre) => {
             genreIdToName[genre.id] = genre.name
@@ -120,22 +117,35 @@ function displayMovieHomePage(movieDataResults, genreList){
 
         movieDataResults.forEach(movie => {
 
-                const genreMovies = movie.genre_ids; // Array of genre IDs for each movie
-                console.log(genreMovies)
+            const genreMovies = movie.genre_ids; // Array of genre IDs for each movie
 
-                const movieYear = new Date(movie.release_date).getFullYear();
+            const movieYear = new Date(movie.release_date).getFullYear();
 
-                const movieContainer = document.createElement('div')
-                movieContainer.classList.add('movie-grid-container')
+            const movieContainer = document.createElement('div')
+            movieContainer.classList.add('movie-grid-container')
 
-                const moviePoster = movie.poster_path
-                const movieOverview = movie.overview
+            const moviePoster = movie.poster_path
+            const movieOverview = movie.overview
 
                 // Create an array to store the genre names for this movie
                 //Here, map is looking for the element(genreId) inside array genreMovies and comparing to genreId in the genreIdToName
                 //and returnin the value to the new array genreNames
-                const genreNames = genreMovies.map(genreId => genreIdToName[genreId]);
-                console.log(genreNames)
+                // const genreNames = genreMovies.map((genreId) => {
+                // return genreIdToName[genreId]
+                // });
+
+                const genreNames = genreMovies
+                .map((genreId) => genreIdToName[genreId])
+                .map((element) => `<p class="${element}">${element}</p>`)
+                
+
+
+
+                // const genreColors = genreNames.forEach((element) => {
+                //     console.log(`<span class="${element}">${element}</span>`)
+                // })
+                console.log(genreNames.join(''))
+
 
                 movieContainer.innerHTML = `
                         <div class="img-container">
@@ -152,19 +162,23 @@ function displayMovieHomePage(movieDataResults, genreList){
                         <div class="info-container">
                             <p class="movie-title">${movie.title}</p>
                             <p class="movie-year">${movieYear}</p>
+                            ${genreNames.join('')}
                         </div>`
+                    
+                    // Attach event listener to the icon AFTER inserting it into the DOM
+                    const littleIcon = movieContainer.querySelector('.littleIconMenu');
+                    littleIcon.addEventListener('click', () => {
                         
-                     // Attach event listener to the icon AFTER inserting it into the DOM
-                        const littleIcon = movieContainer.querySelector('.littleIconMenu');
-                        littleIcon.addEventListener('click', () => {
-                            
-                            
+                        
 
-                        });
+                    });
 
 
-                        homeGridContainer.appendChild(movieContainer)
-                    })
+                homeGridContainer.appendChild(movieContainer)
+                console.log(genreNames)
+
+        })
+
 }
 
 
@@ -189,8 +203,13 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
         <img class="imgPoster" src="https://image.tmdb.org/t/p/w500${moviePoster}" alt="" />
         <div class="figcaptionContainer">
         <p class="contentFigcaption">${movieOverview}</p>
-        <p class="genreOneFigCaption">${genreNames}</p> `
+        <div class="genreOneFigCaption">
+        ${genreNames.join('')}
+        </div>
+        `
 }
+
+
 
 
 // // EXERCISE 1
