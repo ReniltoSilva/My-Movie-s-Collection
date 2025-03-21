@@ -374,3 +374,17 @@ function displayMoviePoster(moviePoster, movieOverview, genreNames){
 // const groupStudentsGrades = studentGrades.map((gra)) //STOPPED HERE
 
 // console.log(groupStudentsGrades)
+
+
+// const arrayTest = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff']
+
+// function shuffleArray(array){
+//     for(let i = array.length - 1; i > 0; i--){
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//         console.log(array[j], array[i])
+//     }
+//     return array;
+// }
+
+// console.log(shuffleArray(arrayTest))
