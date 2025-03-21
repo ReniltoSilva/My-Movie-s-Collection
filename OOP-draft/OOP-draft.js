@@ -1,8 +1,8 @@
 let movieCollection = {
     tmdbPopularAPI: 'https://api.themoviedb.org/3/movie/popular?api_key=d85fc3f866e5fc77be2f384a028b16d3&append_to_response=images',
+    genreApi: 'https://api.themoviedb.org/3/genre/movie/list?api_key=d85fc3f866e5fc77be2f384a028b16d3',
     mainHOMEGridContainer: document.querySelector('.main-Home-grid-container'),
     movieListOOP: [],
-
     //Object with search methods to display movies in the home page
     search: {
         searchInput: document.querySelector('.searchForm'),
@@ -54,22 +54,35 @@ let movieCollection = {
 
     
     fetchPopularMovies(){
+
         fetch(movieCollection.tmdbPopularAPI)
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
             const movieArray = data.results
             movieCollection.displayMovieHomePage(movieArray)
+            
         })
+        //STOPPED HERE, NEED TO DO PROMISE.ALL TO PASS "genreIDs" TO "displayMovieHomePage"
+        fetch(movieCollection.genreApi)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data)
+            const genreIDs = data.genres
+            movieCollection.displayMovieHomePage(genreIDs)
+            console.log(genreIDs)
+        })
+
     },
 
 
     //Fetch and display movies in the home page
-    displayMovieHomePage(movieArray, moviesClick, moviesSubmit){
-        
+    displayMovieHomePage(movieArray, moviesClick, genreIDs){
 
-        (movieArray || moviesClick || moviesSubmit).forEach(element => {
-
+        (movieArray || moviesClick || genreIDs).forEach(element => {
+            
+            console.log(genreIDs)
+            console.log(movieArray)
             let elementPoster = element.poster_path;
             let elementTitle = element.title;
 
@@ -78,6 +91,11 @@ let movieCollection = {
 
             let movieYear = new Date(element.release_date) 
             const movieYearConverted = movieYear.getFullYear()
+
+            // const movieGenreId = {}
+            // movieArray.forEach((movie) => {
+            //     movieGenreId[movie.genre_id]: movie
+            // })
 
             movieGridContainer.innerHTML = `
                     ${this.addMovieToLIst(elementTitle, elementPoster)}
