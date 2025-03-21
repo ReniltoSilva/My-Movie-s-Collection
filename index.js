@@ -136,14 +136,9 @@ function displayMovieHomePage(movieDataResults, genreList){
 
                 const genreNames = genreMovies
                 .map((genreId) => genreIdToName[genreId])
-                .map((element) => `<p class="${element}">${element}</p>`)
-                
-
-
-
-                // const genreColors = genreNames.forEach((element) => {
-                //     console.log(`<span class="${element}">${element}</span>`)
-                // })
+                .map((element) => `<p class="${element}">${element.toUpperCase()}</p>`)
+  
+                console.log(genreNames)
                 console.log(genreNames.join(''))
 
 
@@ -162,7 +157,6 @@ function displayMovieHomePage(movieDataResults, genreList){
                         <div class="info-container">
                             <p class="movie-title">${movie.title}</p>
                             <p class="movie-year">${movieYear}</p>
-                            ${genreNames.join('')}
                         </div>`
                     
                     // Attach event listener to the icon AFTER inserting it into the DOM

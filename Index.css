@@ -213,46 +213,11 @@ li:hover{
     justify-content: center;
     align-items: center;
     width: 90%;
-    height: 20%;
-    margin-bottom: 18px;
-    background-color: rgb(226, 226, 226);
+    height: 10%;
+    margin-bottom: 10px;
+    /* background-color: rgba(226, 226, 226, 0.492); */
+    border-radius: 5px;
 }
-
-/* .genre-Adventure{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 70px;
-    min-width: 20px;
-    height: 20px;
-    margin: 1px;
-    border-radius: 3px;
-    background-color: yellow;
-}
-
-.genre-Fantasy{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 70px;
-    min-width: 20px;
-    height: 20px;
-    margin: 1px;
-    border-radius: 3px;
-    background-color: rgb(171, 3, 3);
-}
-
-.genre-Animation{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 70px;
-    min-width: 20px;
-    height: 20px;
-    margin: 1px;
-    border-radius: 3px;
-    background-color: rgb(84, 214, 103);
-} */
 
 .textInsideSpanGenre{
     width: 100%;
@@ -354,59 +319,65 @@ li:hover{
 }
 
 
-.Fantasy{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    width: 70px;
-    height: 30px;
-    margin: 0 3px;
-    padding: 0;
-    background-color: rgb(151, 151, 151);
-    border-radius: 10px;
-    background-color: chartreuse;
-}
+
 .Action{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
     width: 70px;
-    height: 30px;
+    height: 20px;
     margin: 0 3px;
     padding: 0;
     background-color: rgb(151, 151, 151);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .Romance{
     text-align: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
     width: 70px;
     height: 20px;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0 3px;
     padding: 0;
     background-color: rgb(255, 0, 0);
 }
-.Documentary{
+.Fantasy{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
+    width: 70px;
+    height: 20px;
+    margin: 0 3px;
+    padding: 0;
+    border-radius: 5px;
+    background-color: chartreuse;
+}
+.Documentary{
+    display: flex;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
     width: 70px;
     height: 20px;
     background-color: rgb(0, 123, 255);
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0 3px;
     padding: 0;
 }
 .Comedy{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
     width: 70px;
     height: 20px;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0 3px;
     padding: 0;
     background-color: rgb(253, 255, 140);
@@ -414,10 +385,11 @@ li:hover{
 .Drama{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
     width: 70px;
     height: 20px;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0 3px;
     padding: 0;
     background-color: rgb(255, 140, 251);
@@ -425,10 +397,11 @@ li:hover{
 .Family{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
     width: 70px;
     height: 20px;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0 3px;
     padding: 0;
     background-color: rgb(140, 232, 255);
@@ -436,18 +409,98 @@ li:hover{
 .Music{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
     width: 70px;
     height: 20px;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0 3px;
     padding: 0;
     background-color: rgb(140, 169, 255);
 }
+.Crime{
+    color: whitesmoke;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;    
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(106, 0, 0);
+}
+.Thriller{
+    color: whitesmoke;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;    
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(201, 109, 3);
+}
+.Mystery{
+    color: whitesmoke;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;    
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(49, 102, 51);
+}
+.Animation{
+    color: whitesmoke;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;    
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(235, 168, 92);
+}
+.Horror{
+    color: whitesmoke;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;    
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(49, 37, 37);
+}
+.Adventure{
+    color: whitesmoke;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;    
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    margin: 0 3px;
+    padding: 0;
+    background-color: rgb(255, 252, 203);
+}
 .ScienceFiction{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 12px;    
     width: 70px;
     height: 20px;
     border-radius: 50px;
@@ -455,17 +508,7 @@ li:hover{
     padding: 0;
     background-color: rgb(140, 232, 255);
 }
-.Family{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    width: 70px;
-    height: 20px;
-    border-radius: 50px;
-    margin: 0 3px;
-    padding: 0;
-    background-color: rgb(140, 232, 255);
-}
+
 
 /* -------------------------------------------- ORIGINAL ------------------------------------------------------------ */
 /* 
