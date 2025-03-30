@@ -199,6 +199,42 @@ function displayMoviePoster(moviePoster, movieBackdropPath, movieOverview, genre
 
 
 
+
+// EXERCISE 1
+
+const countries = [
+    { code: "ZB", name: "Zimbabwe" },
+    { code: "US", name: "United States" },
+    { code: "BR", name: "Brazil" },
+    { code: "FR", name: "France" },
+    { code: "IT", name: "Italy" },
+];
+
+let newObj = {}
+
+countries.forEach((index) => {
+    newObj[index.code] = index.name
+})
+
+console.log(newObj)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // EXERCISE 1
 // const countries = [
 //     { code: "US", name: "United States" },
