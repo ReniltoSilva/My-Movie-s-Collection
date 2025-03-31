@@ -199,9 +199,7 @@ function displayMoviePoster(moviePoster, movieBackdropPath, movieOverview, genre
 
 
 
-
 // EXERCISE 1
-
 const countries = [
     { code: "ZB", name: "Zimbabwe" },
     { code: "US", name: "United States" },
@@ -220,9 +218,21 @@ console.log(newObj)
 
 
 
+// EXERCISE 2
+const users = {
+    101: "Alice",
+    102: "Bob",
+    103: "Charlie"
+};
+
+const userIDs = [102, 101, 103];  // These are user IDs
 
 
+const newUsersId = userIDs.map((index) => {
+    return users[index]
+})
 
+console.log(newUsersId)
 
 
 
