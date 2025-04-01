@@ -235,7 +235,15 @@ const newUsersId = userIDs.map((index) => {
 console.log(newUsersId)
 
 
+// EXERCISE 3
+const productLookup = {
+    1: "Laptop",
+    2: "Keyboard",
+    3: "Mouse",
+    4: "Monitor"
+};
 
+const cartItems = [1, 3, 2, 4, 3];  // IDs of products in the cart
 
 
 
