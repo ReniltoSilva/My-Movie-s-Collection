@@ -245,6 +245,17 @@ const productLookup = {
 
 const cartItems = [1, 3, 2, 4, 3];  // IDs of products in the cart
 
+const newProductId = cartItems.map((element) => {
+    return productLookup[element]
+})
+
+console.log(newProductId)
+
+// EXERCISE 3
+
+
+
+
 
 
 
