@@ -251,10 +251,32 @@ const newProductId = cartItems.map((element) => {
 
 console.log(newProductId)
 
-// EXERCISE 3
+// Exercise 4: Match Students with Their Grades
+const students = [
+    { id: 201, name: "Lucas" },
+    { id: 202, name: "Emma" },
+    { id: 205, name: "Gretta" },
+    { id: 203, name: "Olivia" }
+];
 
+const grades = {
+    201: "A",
+    205: "A++",
+    202: "",
+    203: "A+"
+};
 
+const newStudentsId = []
 
+students.forEach((element) => {
+
+    newStudentsId.push({
+        name: element.name,
+        grade: grades[element.id] || 'N/A'
+    })
+})
+
+console.log(newStudentsId)
 
 
 
