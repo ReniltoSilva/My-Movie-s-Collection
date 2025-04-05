@@ -278,6 +278,41 @@ students.forEach((element) => {
 
 console.log(newStudentsId)
 
+//Exercise 5: Match Employees with Their Departments
+//1-use loopup object to replace department ID 
+// with actual department names.
+
+const departmentLookup = {
+    10: "Engineering",
+    20: "HR",
+    30: "Marketing"
+};
+
+const employees = [
+    { name: "Alice", departmentId: 10 },
+    { name: "Bob", departmentId: 20 },
+    { name: "Charlie", departmentId: 30 },
+    { name: "David", departmentId: 10 }
+];
+
+
+const newDepartmentNames = employees.map((element) => {
+    return {
+        name: element.name,
+        department: departmentLookup[element.departmentId]
+    }
+})
+
+console.log(newDepartmentNames)
+
+
+
+
+
+
+
+
+
 
 
 
