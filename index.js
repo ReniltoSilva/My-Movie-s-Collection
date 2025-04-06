@@ -305,12 +305,36 @@ const newDepartmentNames = employees.map((element) => {
 
 console.log(newDepartmentNames)
 
+// Exercise 6: Replace Abbreviations with Full Words
+//Convert them to full names, using a lookup object
 
 
+const daysLookup = {
+    Mon: "Monday",
+    Tue: "Tuesday",
+    Wed: "Wednesday",
+    Thu: "Thursday",
+    Fri: "Friday",
+    Sat: "Saturday",
+    Sun: "Sunday"
+};
+
+const messages = [
+    "Meeting on Mon",
+    "Gym on Tue",
+    "Party on Fri",
+    "Study on Sun"
+];
 
 
+const newMessagesTask = messages.map((element) => {
+    let slicedEl = element.slice(-3)
+   
+   return element.replace(slicedEl, daysLookup[slicedEl])
 
+})
 
+console.log(newMessagesTask)
 
 
 
