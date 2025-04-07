@@ -326,7 +326,6 @@ const messages = [
     "Study on Sun"
 ];
 
-
 const newMessagesTask = messages.map((element) => {
     let slicedEl = element.slice(-3)
    
@@ -335,6 +334,10 @@ const newMessagesTask = messages.map((element) => {
 })
 
 console.log(newMessagesTask)
+
+// Exercise 7: Categorize Users by Role
+
+
 
 
 
