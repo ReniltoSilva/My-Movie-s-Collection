@@ -219,7 +219,7 @@ console.log(newObj)
 
 
 // EXERCISE 2
-const users = {
+const userss = {
     101: "Alice",
     102: "Bob",
     103: "Charlie"
@@ -229,7 +229,7 @@ const userIDs = [102, 101, 103];  // These are user IDs
 
 
 const newUsersId = userIDs.map((index) => {
-    return users[index]
+    return userss[index]
 })
 
 console.log(newUsersId)
@@ -336,6 +336,31 @@ const newMessagesTask = messages.map((element) => {
 console.log(newMessagesTask)
 
 // Exercise 7: Categorize Users by Role
+const roles = {
+    1: "Admin",
+    2: "Editor",
+    3: "Viewer"
+};
+
+const users = [
+    { id: 101, name: "Alice", roleId: 1 },
+    { id: 102, name: "Bob", roleId: 3 },
+    { id: 103, name: "Charlie", roleId: 2 }
+];
+
+
+const newUsersRole = users.map((element) => {
+
+    return {
+        id: element.id,
+        name: element.name,
+        roleId: roles[element.roleId]
+    }
+
+})
+
+console.log(newUsersRole)
+
 
 
 
