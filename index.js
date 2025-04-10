@@ -199,43 +199,43 @@ function displayMoviePoster(moviePoster, movieBackdropPath, movieOverview, genre
 
 
 
+
 // EXERCISE 1
 const countries = [
-    { code: "ZB", name: "Zimbabwe" },
     { code: "US", name: "United States" },
     { code: "BR", name: "Brazil" },
-    { code: "FR", name: "France" },
-    { code: "IT", name: "Italy" },
+    { code: "FR", name: "France" }
 ];
 
-let newObj = {}
+const lookUpObj = {}
 
-countries.forEach((index) => {
-    newObj[index.code] = index.name
+countries.forEach((element) => {
+   
+    lookUpObj[element.code] = element.name
 })
 
-console.log(newObj)
+console.log(lookUpObj)
 
 
 
-// EXERCISE 2
+//EXERCISE 2
 const userss = {
     101: "Alice",
     102: "Bob",
     103: "Charlie"
 };
 
-const userIDs = [102, 101, 103];  // These are user IDs
+const userIDs = [102, 101, 103]; 
 
-
-const newUsersId = userIDs.map((index) => {
-    return userss[index]
+const newUserArray = userIDs.map((element) => {
+    return userss[element]
 })
 
-console.log(newUsersId)
+console.log(newUserArray)
 
 
-// EXERCISE 3
+
+//EXERCISE 3
 const productLookup = {
     1: "Laptop",
     2: "Keyboard",
@@ -243,45 +243,52 @@ const productLookup = {
     4: "Monitor"
 };
 
-const cartItems = [1, 3, 2, 4, 3];  // IDs of products in the cart
+const cartItems = [1, 3, 2, 4, 3];
 
-const newProductId = cartItems.map((element) => {
+const arrayObjects = cartItems.map((element) => {
     return productLookup[element]
 })
 
-console.log(newProductId)
+console.log(arrayObjects)
 
-// Exercise 4: Match Students with Their Grades
+
+
+// EXERCISE 4
 const students = [
     { id: 201, name: "Lucas" },
     { id: 202, name: "Emma" },
-    { id: 205, name: "Gretta" },
     { id: 203, name: "Olivia" }
 ];
 
 const grades = {
     201: "A",
-    205: "A++",
-    202: "",
-    203: "A+"
+    203: '',
+    202: 'A+'
 };
 
-const newStudentsId = []
+// const arrayStudents = []
 
-students.forEach((element) => {
+// students.map((element) => {
+//     arrayStudents.push({
+//         name: element.name,
+//         grade: grades[element.id] || 'N/A'
+//     })
+// })
 
-    newStudentsId.push({
+// console.log(arrayStudents)
+
+//IT ALSO CAN BE DONE THIS WAY, WITHOUT USING PUSH() BUT THEN YOU NEED THE KEYWORD "RETURN"
+//IF YOU ARE NOT USING THE "RETURN" THAN IT'S JUST BEST TO USE THE "FOREACH" BECAUSE IT'S NOT THE RIGHT METHOD.
+const newGrades = students.map((element) => {
+    return {
         name: element.name,
-        grade: grades[element.id] || 'N/A'
-    })
+        grade: grades[element.id]
+    }
 })
+console.log(newGrades)
 
-console.log(newStudentsId)
 
-//Exercise 5: Match Employees with Their Departments
-//1-use loopup object to replace department ID 
-// with actual department names.
-
+//EXERCISE 5
 const departmentLookup = {
     10: "Engineering",
     20: "HR",
@@ -295,20 +302,15 @@ const employees = [
     { name: "David", departmentId: 10 }
 ];
 
-
-const newDepartmentNames = employees.map((element) => {
+const newDepartment = employees.map((element) => {
     return {
         name: element.name,
-        department: departmentLookup[element.departmentId]
+        departmentId: departmentLookup[element.departmentId]
     }
 })
+console.log(newDepartment)
 
-console.log(newDepartmentNames)
-
-// Exercise 6: Replace Abbreviations with Full Words
-//Convert them to full names, using a lookup object
-
-
+//EXERCISE 6
 const daysLookup = {
     Mon: "Monday",
     Tue: "Tuesday",
@@ -319,23 +321,31 @@ const daysLookup = {
     Sun: "Sunday"
 };
 
+// const messages = [
+//     "Meeting on Mon",
+//     "Gym on Tue",
+//     "Party on Fri",
+//     "Study on Sun"
+// ];
+
 const messages = [
-    "Meeting on Mon",
-    "Gym on Tue",
-    "Party on Fri",
-    "Study on Sun"
+    "Mon I got to work",
+    "Tue is day off",
+    "Fri is a busy day",
+    "Sun I got to study"
 ];
 
-const newMessagesTask = messages.map((element) => {
-    let slicedEl = element.slice(-3)
-   
-   return element.replace(slicedEl, daysLookup[slicedEl])
+const updatedMessages = messages.map(element => {
+    // Extract the last 3 characters (Mon, Tue, etc.)
+    const abbrev = element.slice(0, 3); 
 
-})
+    // Replace abbreviation with full name
+    return element.replace(abbrev, daysLookup[abbrev]);
+});
 
-console.log(newMessagesTask)
+console.log(updatedMessages)
 
-// Exercise 7: Categorize Users by Role
+//EXERCISE 7
 const roles = {
     1: "Admin",
     2: "Editor",
@@ -349,212 +359,74 @@ const users = [
 ];
 
 
-const newUsersRole = users.map((element) => {
-
+const newRole = users.map((role) => {
     return {
-        id: element.id,
-        name: element.name,
-        roleId: roles[element.roleId]
+        id: role.id,
+        name: role.name,
+        roleId: roles[role.roleId]
     }
-
 })
 
-console.log(newUsersRole)
+console.log(newRole)
 
 
+//EXERCISE 8: Convert Temperature Units
+const tempsInCelsius = [0, 10, 20, 30, 40];
+
+let tempConverted = []
+
+function celsiusToFahrenheit(celsius) {
+    tempConverted = celsius.map(element => (element * 9/5) + 32)
+    console.log(tempConverted)
+}
+
+celsiusToFahrenheit(tempsInCelsius)
 
 
+//EXERCISE 9: Group Students by Grade
+//1 - convert to an object
+//2 - Where grade is the key
+//3 - and value is array of students who got that grade
+
+const studentGrades = [
+    { name: "Alice", grade: "A" },
+    { name: "Bob", grade: "B" },
+    { name: "Charlie", grade: "A" },
+    { name: "David", grade: "C" },
+    { name: "Eve", grade: "B" }
+];
+
+const groupedByGrade = studentGrades.reduce((acc, student) => {
+    const grade = student.grade;
+    const name = student.name;
+    // If the grade key doesn't exist in the object yet, initialize it
+    if (!acc[grade]) {
+        acc[grade] = [];
+    }
+    // Add the student name to the correct grade group
+    acc[grade].push(name);
+
+    return acc;
+}, {});
+
+console.log(groupedByGrade)
 
 
+//EXERCISE 10: Convert an Array of Orders into a Lookup Object
+const orders = [
+    { id: "A123", customer: "Alice", total: 50 },
+    { id: "B456", customer: "Bob", total: 30 },
+    { id: "C789", customer: "Charlie", total: 20 }
+];
 
+// const newOrdersArray = {}
 
+// const newArrOrders = orders.map((element) => {
 
-
-
-
-
-// // EXERCISE 1
-// const countries = [
-//     { code: "US", name: "United States" },
-//     { code: "BR", name: "Brazil" },
-//     { code: "FR", name: "France" }
-// ];
-
-// const lookUpObj = {}
-
-// countries.forEach((element) => {
-   
-//     lookUpObj[element.code] = element.name
+//         return [element.id]: {
+//             customer: element.customer,
+//             total: element.total
+//         }
 // })
-
-// console.log(lookUpObj)
-
-
-
-// //EXERCISE 2
-// const users = {
-//     101: "Alice",
-//     102: "Bob",
-//     103: "Charlie"
-// };
-
-// const userIDs = [102, 101, 103]; 
-
-// const newUserArray = userIDs.map((element) => {
-//     return users[element]
-// })
-
-// console.log(newUserArray)
-
-
-
-// //EXERCISE 3
-// const productLookup = {
-//     1: "Laptop",
-//     2: "Keyboard",
-//     3: "Mouse",
-//     4: "Monitor"
-// };
-
-// const cartItems = [1, 3, 2, 4, 3];
-
-// const arrayObjects = cartItems.map((element) => {
-//     return productLookup[element]
-// })
-
-// console.log(arrayObjects)
-
-
-
-// // EXERCISE 4
-// const students = [
-//     { id: 201, name: "Lucas" },
-//     { id: 202, name: "Emma" },
-//     { id: 203, name: "Olivia" }
-// ];
-
-// const grades = {
-//     201: "A",
-//     203: '',
-//     202: 'A+'
-// };
-
-// // const arrayStudents = []
-
-// // students.map((element) => {
-// //     arrayStudents.push({
-// //         name: element.name,
-// //         grade: grades[element.id] || 'N/A'
-// //     })
-// // })
-
-// // console.log(arrayStudents)
-
-// //IT ALSO CAN BE DONE THIS WAY, WITHOUT USING PUSH() BUT THEN YOU NEED THE KEYWORD "RETURN"
-// //IF YOU ARE NOT USING THE "RETURN" THAN IT'S JUST BEST TO USE THE "FOREACH" BECAUSE IT'S NOT THE RIGHT METHOD.
-// const newGrades = students.map((element) => {
-//     return {
-//         name: element.name,
-//         grade: grades[element.id]
-//     }
-// })
-// console.log(newGrades)
-
-
-// //EXERCISE 5
-// const departmentLookup = {
-//     10: "Engineering",
-//     20: "HR",
-//     30: "Marketing"
-// };
-
-// const employees = [
-//     { name: "Alice", departmentId: 10 },
-//     { name: "Bob", departmentId: 20 },
-//     { name: "Charlie", departmentId: 30 },
-//     { name: "David", departmentId: 10 }
-// ];
-
-// const newDepartment = employees.map((element) => {
-//     return {
-//         name: element.name,
-//         departmentId: departmentLookup[element.departmentId]
-//     }
-// })
-// console.log(newDepartment)
-
-// //EXERCISE 6
-// const daysLookup = {
-//     Mon: "Monday",
-//     Tue: "Tuesday",
-//     Wed: "Wednesday",
-//     Thu: "Thursday",
-//     Fri: "Friday",
-//     Sat: "Saturday",
-//     Sun: "Sunday"
-// };
-
-// // const messages = [
-// //     "Meeting on Mon",
-// //     "Gym on Tue",
-// //     "Party on Fri",
-// //     "Study on Sun"
-// // ];
-
-// const messages = [
-//     "Mon I got to work",
-//     "Tue is day off",
-//     "Fri is a busy day",
-//     "Sun I got to study"
-// ];
-
-// const updatedMessages = messages.map(element => {
-//     // Extract the last 3 characters (Mon, Tue, etc.)
-//     const abbrev = element.slice(0, 3); 
-
-//     // Replace abbreviation with full name
-//     return element.replace(abbrev, daysLookup[abbrev]);
-// });
-
-// console.log(updatedMessages)
-
-// //EXERCISE 7
-// const roles = {
-//     1: "Admin",
-//     2: "Editor",
-//     3: "Viewer"
-// };
-
-// const users = [
-//     { id: 101, name: "Alice", roleId: 1 },
-//     { id: 102, name: "Bob", roleId: 3 },
-//     { id: 103, name: "Charlie", roleId: 2 }
-// ];
-
-
-// const newRole = users.map((role) => {
-//     return {
-//         id: role.id,
-//         name: role.name,
-//         roleId: roles[role.roleId]
-//     }
-// })
-
-// console.log(newRole)
-
-// //EXERCISE 9
-// const studentGrades = [
-//     { name: "Alice", grade: "A" },
-//     { name: "Bob", grade: "B" },
-//     { name: "Charlie", grade: "A" },
-//     { name: "David", grade: "C" },
-//     { name: "Eve", grade: "B" }
-// ];
-
-
-// let groupStudentsGrades = studentGrades.reduce()//STOPPED HERE
-
-
-
-// console.log(newGroup)
+// console.log(newArrOrders)
 
