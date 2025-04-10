@@ -419,6 +419,18 @@ const orders = [
     { id: "C789", customer: "Charlie", total: 20 }
 ];
 
+let newOrrObjLookup = {}
+
+
+orders.forEach((element) => {
+    newOrrObjLookup[element.id] = {
+        customer: element.customer, 
+        total: element.total
+    }
+})
+
+console.log(newOrrObjLookup)
+
 // const newOrdersArray = {}
 
 // const newArrOrders = orders.map((element) => {
@@ -430,3 +442,15 @@ const orders = [
 // })
 // console.log(newArrOrders)
 
+
+const largeArr = new Array(500).fill('Juninho')
+const arrExample = ['Dory', 'Nemo','Junior', 'Nemo', 'ddd', 'qqqq', 'Nemo']
+
+function perfArray(param){
+    for(let i = 0; i <= param.length; i++){
+        if(param[i] === 'Junior'){
+            console.log(`Found Junior at index ${i}`)
+        }}
+}
+
+perfArray(arrExample)
