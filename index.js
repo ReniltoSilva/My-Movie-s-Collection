@@ -444,13 +444,36 @@ console.log(newOrrObjLookup)
 
 
 const largeArr = new Array(500).fill('Juninho')
-const arrExample = ['Dory', 'Nemo','Junior', 'Nemo', 'ddd', 'qqqq', 'Nemo']
+const arrExample = ['Dory', 'Junior','Maria', 'Nemo', 'ddd', 'qqqq', 'Isaias']
 
 function perfArray(param){
     for(let i = 0; i <= param.length; i++){
+        console.log(param[i])
         if(param[i] === 'Junior'){
             console.log(`Found Junior at index ${i}`)
+            break //Use break to prevent the loop from keep running after finding the result, good for performance.
         }}
 }
 
 perfArray(arrExample)
+
+
+const boxes = [3,6,8,23,5,12,54,365,3,1,0,4,24, 10]
+
+function nestedLoops(array){
+    let bigN = []
+    let smallN = []
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i] > 10){
+            bigN.push(array[i])
+        }else{
+            smallN.push(array[i])
+        }
+    }
+    console.log(bigN)
+    console.log(smallN)
+}
+
+
+nestedLoops(boxes)
