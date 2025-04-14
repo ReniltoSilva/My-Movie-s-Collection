@@ -477,3 +477,84 @@ function nestedLoops(array){
 
 
 nestedLoops(boxes)
+
+
+
+console.log('23' - '10' + 10) //Converts to Number
+console.log(10 + '23' - '10') //Converts to Number
+console.log('10' - '4' - '3' - 2 + '5' * 10)
+let something;
+console.log(typeof something)//Should return undefined, cause it's holding the 'value' of undefined
+console.log(typeof null)//Should return Null, but it returns as an object - THIS IS A BUG IN JS 
+
+//Falsy Values - There are 5 values that become falsy when we try to convert them to Boolean.
+console.log(Boolean(0))
+console.log(Boolean(''))
+console.log(Boolean(null))
+console.log(Boolean(undefined))
+console.log(Boolean(NaN))
+
+//Truthy Values - Everything else that is not falsy
+console.log(Boolean(4))
+console.log(Boolean('string'))
+console.log(Boolean({}))
+console.log(Boolean([]))
+console.log(Boolean(boxes.push()))
+const boxesss = []
+console.log(Boolean(boxesss.length))//Falsy because the lenght is 0 and 0 is a falsy value.
+
+
+// const favPropmt = Number(prompt('Type a number'))
+// console.log(typeof favPropmt)
+// console.log(favPropmt)
+
+
+// const dolphins = (96 + 108 + 89) / 3;
+// const koalas = (88 + 91 + 110) / 3;
+
+// if(dolphins > koalas && dolphins >= 100){
+//     console.log(`Dolphins are the winners (${dolphins})`)
+// }else if(koalas > dolphins && koalas >= 100){
+//     console.log(`Koalas are the winners (${koalas})`)
+// }else{
+//     console.log(`No winners, it's a draw! 
+// Dolphins(${Math.ceil(dolphins)}) - Koalas(${Math.ceil(koalas)})`)
+// }
+
+const day = 'sdf'
+
+switch(day){
+    case 'Monday': //Strict comparison (===)
+        console.log('Hello, Monday')
+        break;
+    case 'Tuesday':
+        console.log('Hello, Tuesday')
+        break;
+    case 'Wednessday':
+    case 'Thursday':
+        console.log('Hello, Wednessday and Thursday')
+        break;
+    default:
+        console.log('Not a valid day')
+}
+
+// //Statements and Expressions
+// const valueTernary = 3 > 5 ? 'hahaha' : 'hohoho'
+
+// console.log(`${3 > 5 ? 'hahaha' : 'hohoho'}`)
+// console.log(`${valueTernary}`)
+// console.log(valueTernary)
+
+const bill = 50
+
+// First version
+// const tip15 = (bill/100) * 15
+// const tip20 = (bill/100) * 20
+// bill >= 50 && bill <= 300 ? console.log(`The bill is ${bill}, the tip is ${tip15}, the total is ${bill + tip15}`) : 
+//                             console.log(`The bill is ${bill}, the tip is ${tip20}, the total is ${bill + tip20}`); 
+
+
+//Final Version, way shorter - DRY(Don't Repeat Yourself)
+const result = bill >= 50 && bill <= 300 ? bill/100 * 15 : bill/100 * 20;
+
+console.log(`The bill is ${bill}, the tip is ${result}, the total is ${bill + result}`)
