@@ -9,10 +9,10 @@ const homeGridContainer = document.querySelector('.main-Home-grid-container')
 
 const searchBTN = document.querySelector('.search-button')
 const searchInput = document.querySelector('.searchForm')
-
+const formContainer = document.querySelector('.formContainer')
 
 // FETCH MOVIES IN THE DOM WHEN CONTENT LOADS
-document.addEventListener('DOMContentLoaded', fetchMovies(displayMovieHomePage))
+document.addEventListener('DOMContentLoaded', fetchMovies())
 
 //Here I fetch both APIs, notice that I can fetch an API inside another API being fetched.
 //So, after one API is fetched the other one will be called after.
@@ -67,8 +67,11 @@ function fetchMovies(){
 
 //In this function I will fetch both APIs(This time using Promise.all which is the same thing as calling them separate) 
 //Then I pass in displayMovieHomePage as a callback with the data from both fetched APIs.
-searchBTN.addEventListener('click', () => fetchMoviesSearch(displayMovieHomePage))
-        
+searchBTN.addEventListener('click', () => fetchMoviesSearch())
+formContainer.addEventListener('submit', (e) => {
+    e.preventDefault()
+    fetchMoviesSearch()
+})        
 
 function fetchMoviesSearch(){
 
@@ -101,10 +104,12 @@ function fetchMoviesSearch(){
                 console.log('Error:', err);
             });
     }
+
+    searchInput.value = ''
 }
 
 
-//---------------------------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
+//---------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
 const arrListMovies = [];
 
 function displayMovieHomePage(movieDataResults, genreList){
