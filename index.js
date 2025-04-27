@@ -164,10 +164,10 @@ function displayMovieHomePage(movieDataResults, genreList){
                     // Attach event listener to the icon AFTER inserting it into the DOM
                     const littleIcon = movieContainer.querySelector('.littleIconMenu');
                     littleIcon.addEventListener('click', () => {
-                        
-                        
-
+                        dropdownMenuContent()
+                        console.log('button clicked')
                     });
+
                 homeGridContainer.appendChild(movieContainer)
         })
 }
