@@ -10,8 +10,8 @@ body{
     flex-direction: column;
     align-items: center;
     margin: 0px 0px 8px 0px;
-    /* background: linear-gradient(rgb(255, 255, 255), rgb(95, 95, 95)) ; */
-    background: linear-gradient(rgb(46, 46, 46), rgb(113, 113, 113));
+    background: red;
+    /* background: linear-gradient(rgb(46, 46, 46), rgb(113, 113, 113)); */
     background-position: center;
     background-repeat:no-repeat;
     background-size: cover;
