@@ -108,7 +108,7 @@ function fetchMoviesSearch() {
   searchInput.value = "";
 }
 
-//---------------------------DISPLAY MOVIES ON SCREEN FUNCTION-----------------------------//
+//---------------------------DISPLAY MOVIES ON SCREEN -----------------------------//
 const arrListMovies = [];
 
 function displayMovieHomePage(movieDataResults, genreList) {
